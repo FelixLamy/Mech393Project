@@ -57,7 +57,6 @@ gearbox.pinion2.geometry.diametral_pitch =4;
 gearbox.pinion2.geometry.facewidth = 12/gearbox.pinion2.geometry.diametral_pitch;
 gearbox.pinion2.geometry.pitchdiameter = gearbox.pinion2.geometry.N/gearbox.pinion2.geometry.diametral_pitch;
 gearbox.pinion2.geometry.pressure_angle = 20;
-gearbox.pinion2.geometry.position = [2;0;0];
 
 gearbox.pinion2.material.hardness = 197;
 gearbox.pinion2.material.poissonratio = 0.29;
@@ -71,7 +70,6 @@ gearbox.gear2.geometry.diametral_pitch = 4;
 gearbox.gear2.geometry.facewidth = 12/gearbox.gear2.geometry.diametral_pitch;
 gearbox.gear2.geometry.pitchdiameter = gearbox.gear2.geometry.N/gearbox.gear2.geometry.diametral_pitch;
 gearbox.gear2.geometry.pressure_angle = 20;
-gearbox.gear2.geometry.position = [2;0;0];
 
 gearbox.gear2.material.hardness = 197;
 gearbox.gear2.material.poissonratio = 0.29;
@@ -100,7 +98,7 @@ gearbox.gear3.geometry.diametral_pitch = 4;
 gearbox.gear3.geometry.facewidth = 12/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pitchdiameter = gearbox.gear3.geometry.N/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pressure_angle = 20;
-gearbox.gear3.geometry.position = [6;0;0];
+gearbox.pinion1.geometry.position = [6;0;0];
 
 gearbox.gear3.material.hardness = 197;
 gearbox.gear3.material.poissonratio = 0.29;
