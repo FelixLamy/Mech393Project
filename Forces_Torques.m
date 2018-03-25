@@ -1,0 +1,32 @@
+%% Gear 3
+gearbox.gear3.loads.P = 0.675*17000*0.737562*12; %W to (lbf*ft/s)*(in/ft) = lfb*in/s
+gearbox.gear3.loads.T = gearbox.gear3.loads.P/gearbox.gear3.geometry.omega; %lbf*in
+gearbox.gear3.loads.tang_F = (gearbox.gear3.loads.T*2*gearbox.gear3.geometry.diametral_pitch)/gearbox.gear3.geometry.N;
+gearbox.gear3.loads.rad_F = gearbox.gear3.loads.tang_F*tand(gearbox.gear3.geometry.pressure_angle);
+
+%% Pinion 3
+gearbox.pinion3.loads.tang_F = gearbox.gear3.loads.tang_F;
+gearbox.pinion3.loads.rad_F = gearbox.gear3.loads.rad_F;
+gearbox.pinion3.loads.T = (gearbox.pinion3.loads.tang_F*gearbox.pinion3.geometry.N)/(2*gearbox.pinion3.geometry.diametral_pitch);
+
+%% Gear 2
+gearbox.gear2.loads.T = gearbox.pinion3.loads.T;
+gearbox.gear2.loads.tang_F = (gearbox.gear2.loads.T*2*gearbox.gear2.geometry.diametral_pitch)/gearbox.gear2.geometry.N;
+gearbox.gear2.loads.rad_F = gearbox.gear2.loads.tang_F*tand(gearbox.gear2.geometry.pressure_angle);
+
+%% Pinion 2
+gearbox.pinion2.loads.tang_F = gearbox.gear2.loads.tang_F;
+gearbox.pinion2.loads.rad_F = gearbox.gear2.loads.rad_F;
+gearbox.pinion2.loads.T = (gearbox.pinion2.loads.tang_F*gearbox.pinion2.geometry.N)/(2*gearbox.pinion2.geometry.diametral_pitch);
+
+%% Gear 1
+gearbox.gear1.loads.P = 0.325*17000*0.737562*12; %W to (lbf*ft/s)*(in/ft) = lfb*in/s
+gearbox.gear1.loads.T = gearbox.gear1.loads.P/gearbox.gear1.geometry.omega; %lbf*in
+gearbox.gear1.loads.tang_F = (gearbox.gear1.loads.T*2*gearbox.gear1.geometry.diametral_pitch)/gearbox.gear1.geometry.N;
+gearbox.gear1.loads.rad_F = gearbox.gear1.loads.tang_F*tand(gearbox.gear1.geometry.pressure_angle);
+
+%% Pinion 1
+
+gearbox.pinion1.loads.tang_F = gearbox.gear1.loads.tang_F;
+gearbox.pinion1.loads.rad_F = gearbox.gear1.loads.rad_F;
+gearbox.pinion1.loads.T = (gearbox.pinion1.loads.tang_F*gearbox.pinion1.geometry.N)/(2*gearbox.pinion1.geometry.diametral_pitch);
