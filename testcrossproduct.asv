@@ -1,8 +1,0 @@
-Gearbox_Parameters;
-Forces_Torques;
-
-syms Rby Rbz
-gearbox.bearing2.geometry.loads.F = [0; Rby; Rbz];
-gearbox.bearing2.geometry.position = [8; 0; 0];
-
-eqn = cross(gearbox.pinion2.geometry.position, gearbox.pinion2.loads.F) + cross(gearbox.pinion1.geometry.position, gearbox.pinion1.loads.F) + cross(
