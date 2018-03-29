@@ -6,6 +6,7 @@ Forces_Torques
 Surface_Gears
 Tooth_Bending
 
+
 fprintf('--------------------------------- \n')
 fprintf('Pitch Diameters\n')
 fprintf('Pinion 1: %f\n', gearbox.pinion1.geometry.pitchdiameter)

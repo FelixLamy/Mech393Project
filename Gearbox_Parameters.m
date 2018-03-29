@@ -82,7 +82,7 @@ gearbox.gear2.material.youngsmodulus = 29E6;
 gearbox.gear2.material.quality = 6;
 
 %% Pinion 3 Parameters
-gearbox.pinion3.geometry.diametral_pitch = 4;
+gearbox.pinion3.geometry.diametral_pitch = 2.9;
 gearbox.pinion3.geometry.facewidth = 12/gearbox.pinion3.geometry.diametral_pitch;
 gearbox.pinion3.geometry.pitchdiameter = gearbox.pinion3.geometry.N/gearbox.pinion3.geometry.diametral_pitch;
 gearbox.pinion3.geometry.pressure_angle = 20;
@@ -97,7 +97,7 @@ gearbox.pinion3.material.youngsmodulus = 29E6;
 gearbox.pinion3.material.quality = 6;
 
 %% Gear 3 Parameters
-gearbox.gear3.geometry.diametral_pitch = 4;
+gearbox.gear3.geometry.diametral_pitch = 2.9;
 gearbox.gear3.geometry.facewidth = 12/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pitchdiameter = gearbox.gear3.geometry.N/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pressure_angle = 20;
@@ -107,5 +107,12 @@ gearbox.gear3.material.hardness = 197;
 gearbox.gear3.material.poissonratio = 0.29;
 gearbox.gear3.material.elongation = 25;       %Elongation over 2 in
 gearbox.gear3.material.yieldstrenght = 61;
-gearbox.gear3.material.youngsmodulus = 29E6;
+gearbox.gear3.material.youngsmodulus = 29E6; 
 gearbox.gear3.material.quality = 6;
+
+%% Input Shaft
+
+%for carbon steel 1045 cold rolled
+gearbox.shaft.IN.material.yield = 77e3; %psi
+gearbox.shaft.IN.material.UTS = 91e3; %psi
+
