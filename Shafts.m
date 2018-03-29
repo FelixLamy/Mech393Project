@@ -1,15 +1,15 @@
 
 %% Shafts 
-clear all
-clc
-Gearbox_Parameters;
-Forces_Torques;
+%clear all
+%clc
+%Gearbox_Parameters;
+%Forces_Torques;
 
 %% Input Shaft
 
 syms Rby Rbz
 gearbox.shaft.IN.bearing2.loads.F = [0; Rby; Rbz];
-gearbox.shaft.IN.bearing2.geometry.position = [8; 0; 0];
+gearbox.shaft.IN.bearing2.geometry.position = [gearbox.shaft.length; 0; 0];
 
 eqn = cross(gearbox.pinion2.geometry.position, gearbox.pinion2.loads.F) + cross(gearbox.pinion1.geometry.position, gearbox.pinion1.loads.F) ... 
             + cross(gearbox.shaft.IN.bearing2.loads.F, gearbox.shaft.IN.bearing2.geometry.position) == 0;
@@ -30,7 +30,7 @@ gearbox.shaft.IN.bearing1.loads.F = [0; double((vpa(solRay))); double((vpa(solRa
 
 syms Rby Rbz
 gearbox.shaft.ID.bearing2.loads.F = [0; Rby; Rbz];
-gearbox.shaft.ID.bearing2.geometry.position = [8; 0; 0];
+gearbox.shaft.ID.bearing2.geometry.position = [gearbox.shaft.length; 0; 0];
 
 eqn = cross(gearbox.gear2.geometry.position, gearbox.gear2.loads.F) + cross(gearbox.pinion3.geometry.position, gearbox.pinion3.loads.F) ...
             + cross(gearbox.shaft.ID.bearing2.loads.F, gearbox.shaft.ID.bearing2.geometry.position) == 0;
@@ -51,7 +51,7 @@ gearbox.shaft.ID.bearing1.loads.F = [0; double((vpa(solRay))); double((vpa(solRa
 
 syms Rby Rbz
 gearbox.shaft.O1.bearing2.loads.F = [0; Rby; Rbz];
-gearbox.shaft.O1.bearing2.geometry.position = [8; 0; 0];
+gearbox.shaft.O1.bearing2.geometry.position = [gearbox.shaft.O1.geometry.length; 0; 0];
 
 eqn = cross(gearbox.gear1.geometry.position, gearbox.gear1.loads.F) + cross(gearbox.shaft.O1.bearing2.geometry.position, gearbox.shaft.O1.bearing2.loads.F) == 0;
 [solRby,solRbz] = solve(eqn);
@@ -71,7 +71,7 @@ gearbox.shaft.O1.bearing1.loads.F = [0; double((vpa(solRay))); double((vpa(solRa
 
 syms Rby Rbz
 gearbox.shaft.O2.bearing2.loads.F = [0; Rby; Rbz];
-gearbox.shaft.O2.bearing2.geometry.position = [8; 0; 0];
+gearbox.shaft.O2.bearing2.geometry.position = [gearbox.shaft.O2.geometry.length; 0; 0];
 
 eqn = cross(gearbox.gear3.geometry.position, gearbox.gear3.loads.F) + cross(gearbox.shaft.O2.bearing2.geometry.position, gearbox.shaft.O2.bearing2.loads.F) == 0;
 [solRby,solRbz] = solve(eqn);
