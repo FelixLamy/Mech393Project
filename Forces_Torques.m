@@ -46,35 +46,24 @@ gearbox.pinion1.loads.F = [0; gearbox.pinion1.loads.tang_F; -gearbox.pinion1.loa
 %% Bearing 1 Input Shaft
 
 gearbox.shaft.IN.bearing1.position = [0;0;0];
-
 %% Bearing 2 Input Shaft
 
 gearbox.shaft.IN.bearing2.position = [0;0;0];
-
-
 %% Bearing 1 Idler Shaft
 
 gearbox.shaft.ID.bearing1.position = [0;0;0];
-
-
 %% Bearing 2 Idler Shaft
 
 gearbox.shaft.ID.bearing2.position = [0;0;0];
-
-
 %% Bearing 1 Output Shaft 1
 
 gearbox.shaft.O1.bearing2.position = [0;0;0];
-
-
 %% Bearing 2 Output Shaft 1
 
 gearbox.shaft.O1.bearing2.position = [0;0;0];
-
 %% Bearing 1 Output Shaft 2
+
 gearbox.shaft.O2.bearing2.position = [0;0;0];
-
-
 %% Bearing 2 Output Shaft 2
 
 gearbox.shaft.O2.bearing2.position = [0;0;0];
