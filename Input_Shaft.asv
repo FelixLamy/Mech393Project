@@ -28,14 +28,14 @@ gearbox.shaft.IN.factors.kfP2 = 1 + gearbox.shaft.IN.factors.qP2*(gearbox.shaft.
 gearbox.shaft.IN.factors.kfsP2 = 1 + gearbox.shaft.IN.factors.qP2*(gearbox.shaft.IN.factors.ktsP2 - 1);
 gearbox.shaft.IN.factors.safety = 2;
 
-gearbox.shaft.IN.TMP2 = gearbox.shaft.IN.torsion(1)/2;
+gearbox.shaft.IN.TMP2 = gearbox.shaft.IN.torsion(1);
 gearbox.shaft.IN.TAP2 = gearbox.shaft.IN.TMP2; %repeated loading
-gearbox.shaft.IN.MMP2 = sqrt(VBP2(2,1)^2 + VBP2(2,2)^2)/2;
-gearbox.shaft.IN.MAP2 = gearbox.shaft.IN.MMP2; %repeated loading
+gearbox.shaft.IN.MMP2 = sqrt(VBP2(2,1)^2 + VBP2(2,2)^2);
+gearbox.shaft.IN.MAP2 = gearbox.shaft.IN.MMP2;
 
 gearbox.shaft.IN.dP2 = ((32*gearbox.shaft.IN.factors.safety/pi)*((sqrt(((gearbox.shaft.IN.factors.kfP2*gearbox.shaft.IN.MAP2)^2)+((3/4)*(gearbox.shaft.IN.factors.kfsP2* gearbox.shaft.IN.TAP2)^2))/gearbox.shaft.IN.material.enduranceP2) + (sqrt(((gearbox.shaft.IN.factors.kfP2*gearbox.shaft.IN.MMP2)^2)+((3/4)*(gearbox.shaft.IN.factors.kfsP2* gearbox.shaft.IN.TMP2)^2))/gearbox.shaft.IN.material.UTS)))^(1/3);
 
-gearbox.shaft.IN.dP2 = floor(gearbox.shaft.IN.dP2)+ceil((gearbox.shaft.IN.dP2-floor(gearbox.shaft.IN.dP2))/0.25)*0.25; %round up to next quarter
+gearbox.shaft.IN.dP2 = floor(gearbox.shaft.IN.dP2)+ceil((gearbox.shaft.IN.dP2-floor(gearbox.shaft.IN.dP2))/0.25)*0.25;
 
 %% Recalculate safetly factor
 

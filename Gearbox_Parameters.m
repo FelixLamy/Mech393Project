@@ -1,7 +1,7 @@
 
 %% Input Parameters for configuration
 gearbox.cycles = 1E9;
-gearbox.shaft.length = 10; %in
+gearbox.shaft.length = 12; %in
 gearbox.shaft.geardist = 6; %distance between centerline of gear (in)
 gearbox.shaft.O1.geometry.length = 6;
 gearbox.shaft.O2.geometry.length = 6;
