@@ -6,8 +6,6 @@ Forces_Torques;
 %% Input Shaft
 
 syms Rby Rbz
-gearbox.bearing2.input.loads.F = [0; Rby; Rbz];
-gearbox.bearing2.input.position = [gearbox.shaft.length; 0; 0];
 gearbox.shaft.IN.bearing2.loads.F = [0; Rby; Rbz];
 gearbox.shaft.IN.bearing2.geometry.position = [gearbox.shaft.length; 0; 0];
 
@@ -29,9 +27,6 @@ gearbox.shaft.IN.bearing1.loads.F = [0; double((vpa(solRay))); double((vpa(solRa
 %% Idler Shaft
 
 syms Rby Rbz
-
-gearbox.bearing2.intermediate.loads.F = [0; Rby; Rbz];
-gearbox.bearing2.intermediate.position = [gearbox.shaft.length; 0; 0];
 
 gearbox.shaft.ID.bearing2.loads.F = [0; Rby; Rbz];
 gearbox.shaft.ID.bearing2.geometry.position = [gearbox.shaft.length; 0; 0];
@@ -55,9 +50,6 @@ gearbox.shaft.ID.bearing1.loads.F = [0; double((vpa(solRay))); double((vpa(solRa
 
 syms Rby Rbz
 
-gearbox.bearing2.output1.loads.F = [0; Rby; Rbz];
-gearbox.bearing2.output1.position = [gearbox.shaft.length; 0; 0];
-
 gearbox.shaft.O1.bearing2.loads.F = [0; Rby; Rbz];
 gearbox.shaft.O1.bearing2.geometry.position = [gearbox.shaft.O1.geometry.length; 0; 0];
 
@@ -78,9 +70,6 @@ gearbox.shaft.O1.bearing1.loads.F = [0; double((vpa(solRay))); double((vpa(solRa
 %% Output 2
 
 syms Rby Rbz
-
-gearbox.bearing2.output2.loads.F = [0; Rby; Rbz];
-gearbox.bearing2.output2.position = [gearbox.shaft.length; 0; 0];
 
 gearbox.shaft.O2.bearing2.loads.F = [0; Rby; Rbz];
 gearbox.shaft.O2.bearing2.geometry.position = [gearbox.shaft.O2.geometry.length; 0; 0];
