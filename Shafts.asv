@@ -1,5 +1,7 @@
-%% Shafts 
 clc
+%% Shafts 
+%clear all
+lc
 Gearbox_Parameters;
 Forces_Torques;
 
