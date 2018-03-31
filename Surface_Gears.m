@@ -22,9 +22,6 @@ F1 = gearbox.pinion1.geometry.facewidth;
 F2 = gearbox.pinion2.geometry.facewidth;
 F3 = gearbox.pinion3.geometry.facewidth;
 
-%Transmitted Load - common to all gears in set
-Wt = gearbox.pinion1.loads.tang_F;
-
 %Elastic Coefficient - all pinions have same material properties as both
 %gears in meshes
 Cp = sqrt(1/(2*pi*(1-(gearbox.pinion1.material.poissonratio)^2)/gearbox.pinion1.material.youngsmodulus));
@@ -60,7 +57,7 @@ mesh1.rho2 = (gearbox.pinion1.geometry.pitchdiameter/2 + gearbox.gear1.geometry.
 I1 = cos(gearbox.pinion1.geometry.pressure_angle)/((1/mesh1.rho1 + 1/mesh1.rho2)*gearbox.pinion1.geometry.pitchdiameter);
 
 %Surface Stress on Pinion-Gear 
-p1.surfstress = Cp*sqrt(Wt*Ca*Cm1*Cs*Cf/(F1*I1*gearbox.pinion1.geometry.pitchdiameter*Cv));
+p1.surfstress = Cp*sqrt(gearbox.pinion1.loads.tang_F*Ca*Cm1*Cs*Cf/(F1*I1*gearbox.pinion1.geometry.pitchdiameter*Cv));
 
 %Surface Strength on Pinion1 and Gear 1 
 p1.uncorrectSfc = 327*(gearbox.pinion1.material.hardness)+26000;
@@ -94,7 +91,7 @@ mesh2.rho2 = (gearbox.pinion2.geometry.pitchdiameter/2 + gearbox.gear2.geometry.
 I2 = cos(gearbox.pinion2.geometry.pressure_angle)/((1/mesh2.rho1 + 1/mesh2.rho2)*gearbox.pinion2.geometry.pitchdiameter);
 
 %Surface Stress on Pinion-Gear 
-p2.surfstress = Cp*sqrt(Wt*Ca*Cm2*Cs*Cf/(F2*I2*gearbox.pinion2.geometry.pitchdiameter*Cv));
+p2.surfstress = Cp*sqrt(gearbox.pinion2.loads.tang_F*Ca*Cm2*Cs*Cf/(F2*I2*gearbox.pinion2.geometry.pitchdiameter*Cv));
 
 %Surface Strength on Pinion1
 p2.uncorrectSfc = 327*(gearbox.pinion2.material.hardness)+26000;
@@ -128,7 +125,7 @@ mesh3.rho2 = (gearbox.pinion3.geometry.pitchdiameter/2 + gearbox.gear3.geometry.
 I3 = cos(gearbox.pinion3.geometry.pressure_angle)/((1/mesh3.rho1 + 1/mesh3.rho2)*gearbox.pinion3.geometry.pitchdiameter);
 
 %Surface Stress on Pinion-Gear 
-p3.surfstress = Cp*sqrt(Wt*Ca*Cm2*Cs*Cf/(F3*I3*gearbox.pinion3.geometry.pitchdiameter*Cv));
+p3.surfstress = Cp*sqrt(gearbox.pinion3.loads.tang_F*Ca*Cm3*Cs*Cf/(F3*I3*gearbox.pinion3.geometry.pitchdiameter*Cv));
 
 %Surface Strength on Pinion1 
 p3.uncorrectSfc = 327*(gearbox.pinion3.material.hardness)+26000;

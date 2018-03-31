@@ -101,7 +101,7 @@ gearbox.pinion3.material.youngsmodulus = 29.7E6;
 gearbox.pinion3.material.quality = 6;
 
 %% Gear 3 Parameters
-gearbox.gear3.geometry.diametral_pitch = 3.25;
+gearbox.gear3.geometry.diametral_pitch = 3.75;
 gearbox.gear3.geometry.facewidth = 16/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pitchdiameter = gearbox.gear3.geometry.N/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pressure_angle = 20;
