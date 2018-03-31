@@ -23,17 +23,13 @@ F2 = gearbox.pinion2.geometry.facewidth;
 F3 = gearbox.pinion3.geometry.facewidth;
 
 %Transmitted Load - common to all gears in set
-Wt = gearbox.pinion1.loads.tang_F;
+Wt1 = gearbox.pinion1.loads.tang_F;
+Wt2 = gearbox.pinion2.loads.tang_F;
+Wt3 = gearbox.pinion3.loads.tang_F;
 
 %Elastic Coefficient - all pinions have same material properties as both
 %gears in meshes
 Cp = sqrt(1/(2*pi*(1-(gearbox.pinion1.material.poissonratio)^2)/gearbox.pinion1.material.youngsmodulus));
-
-%Dynamic Factor - common to all gears in set
-Vt = gearbox.pinion1.geometry.pitchdiameter*gearbox.pinion1.geometry.omega*2.5;
-B = (12-gearbox.pinion1.material.quality)^(2/3)/4;
-A = 50 + 56*(1-B);
-Cv = (A/(A+sqrt(Vt)))^B;
 
 %% Mesh 1
 
@@ -52,6 +48,12 @@ end
 
 Ch1 = 1 + A1*(gearbox.gear1.geometry.pitchdiameter/gearbox.pinion1.geometry.pitchdiameter - 1);
 
+%Dynamic Factor - common to all gears in set
+Vt1 = gearbox.pinion1.geometry.pitchdiameter*gearbox.pinion1.geometry.omega*2.5;
+B = (12-gearbox.pinion1.material.quality)^(2/3)/4;
+A = 50 + 56*(1-B);
+Cv1 = (A/(A+sqrt(Vt1)))^B;
+
 %Radius of Curvature 
 mesh1.rho1 = sqrt((gearbox.pinion1.geometry.pitchdiameter/2+1/gearbox.pinion1.geometry.diametral_pitch)^2-(gearbox.pinion1.geometry.pitchdiameter/2*cos(gearbox.pinion1.geometry.pressure_angle))^2)-pi*cos(gearbox.pinion1.geometry.pressure_angle)/gearbox.pinion1.geometry.diametral_pitch;
 mesh1.rho2 = (gearbox.pinion1.geometry.pitchdiameter/2 + gearbox.gear1.geometry.pitchdiameter/2)*sin(gearbox.pinion1.geometry.pressure_angle)-mesh1.rho1;
@@ -60,7 +62,7 @@ mesh1.rho2 = (gearbox.pinion1.geometry.pitchdiameter/2 + gearbox.gear1.geometry.
 I1 = cos(gearbox.pinion1.geometry.pressure_angle)/((1/mesh1.rho1 + 1/mesh1.rho2)*gearbox.pinion1.geometry.pitchdiameter);
 
 %Surface Stress on Pinion-Gear 
-p1.surfstress = Cp*sqrt(Wt*Ca*Cm1*Cs*Cf/(F1*I1*gearbox.pinion1.geometry.pitchdiameter*Cv));
+p1.surfstress = Cp*sqrt(Wt1*Ca*Cm1*Cs*Cf/(F1*I1*gearbox.pinion1.geometry.pitchdiameter*Cv1));
 
 %Surface Strength on Pinion1 and Gear 1 
 p1.uncorrectSfc = 327*(gearbox.pinion1.material.hardness)+26000;
@@ -86,6 +88,12 @@ end
 
 Ch2 = 1 + A2*(gearbox.gear2.geometry.pitchdiameter/gearbox.pinion2.geometry.pitchdiameter - 1);
 
+%Dynamic Factor - common to all gears in set
+Vt2 = gearbox.pinion2.geometry.pitchdiameter*gearbox.pinion2.geometry.omega*2.5;
+B = (12-gearbox.pinion2.material.quality)^(2/3)/4;
+A = 50 + 56*(1-B);
+Cv2 = (A/(A+sqrt(Vt2)))^B;
+
 %Radius of Curvature 
 mesh2.rho1 = sqrt((gearbox.pinion2.geometry.pitchdiameter/2+1/gearbox.pinion2.geometry.diametral_pitch)^2-(gearbox.pinion2.geometry.pitchdiameter/2*cos(gearbox.pinion2.geometry.pressure_angle))^2)-pi*cos(gearbox.pinion2.geometry.pressure_angle)/gearbox.pinion2.geometry.diametral_pitch;
 mesh2.rho2 = (gearbox.pinion2.geometry.pitchdiameter/2 + gearbox.gear2.geometry.pitchdiameter/2)*sin(gearbox.pinion2.geometry.pressure_angle)-mesh2.rho1;
@@ -94,7 +102,7 @@ mesh2.rho2 = (gearbox.pinion2.geometry.pitchdiameter/2 + gearbox.gear2.geometry.
 I2 = cos(gearbox.pinion2.geometry.pressure_angle)/((1/mesh2.rho1 + 1/mesh2.rho2)*gearbox.pinion2.geometry.pitchdiameter);
 
 %Surface Stress on Pinion-Gear 
-p2.surfstress = Cp*sqrt(Wt*Ca*Cm2*Cs*Cf/(F2*I2*gearbox.pinion2.geometry.pitchdiameter*Cv));
+p2.surfstress = Cp*sqrt(Wt2*Ca*Cm2*Cs*Cf/(F2*I2*gearbox.pinion2.geometry.pitchdiameter*Cv2));
 
 %Surface Strength on Pinion1
 p2.uncorrectSfc = 327*(gearbox.pinion2.material.hardness)+26000;
@@ -120,6 +128,12 @@ end
 
 Ch3 = 1 + A3*(gearbox.gear3.geometry.pitchdiameter/gearbox.pinion3.geometry.pitchdiameter - 1);
 
+%Dynamic Factor - common to all gears in set
+Vt3 = gearbox.pinion3.geometry.pitchdiameter*gearbox.pinion3.geometry.omega*2.5;
+B = (12-gearbox.pinion3.material.quality)^(2/3)/4;
+A = 50 + 56*(1-B);
+Cv3 = (A/(A+sqrt(Vt3)))^B;
+
 %Radius of Curvature
 mesh3.rho1 = sqrt((gearbox.pinion3.geometry.pitchdiameter/2+1/gearbox.pinion3.geometry.diametral_pitch)^2-(gearbox.pinion3.geometry.pitchdiameter/2*cos(gearbox.pinion3.geometry.pressure_angle))^2)-pi*cos(gearbox.pinion3.geometry.pressure_angle)/gearbox.pinion3.geometry.diametral_pitch;
 mesh3.rho2 = (gearbox.pinion3.geometry.pitchdiameter/2 + gearbox.gear3.geometry.pitchdiameter/2)*sin(gearbox.pinion3.geometry.pressure_angle)-mesh3.rho1;
@@ -128,7 +142,7 @@ mesh3.rho2 = (gearbox.pinion3.geometry.pitchdiameter/2 + gearbox.gear3.geometry.
 I3 = cos(gearbox.pinion3.geometry.pressure_angle)/((1/mesh3.rho1 + 1/mesh3.rho2)*gearbox.pinion3.geometry.pitchdiameter);
 
 %Surface Stress on Pinion-Gear 
-p3.surfstress = Cp*sqrt(Wt*Ca*Cm2*Cs*Cf/(F3*I3*gearbox.pinion3.geometry.pitchdiameter*Cv));
+p3.surfstress = Cp*sqrt(Wt3*Ca*Cm3*Cs*Cf/(F3*I3*gearbox.pinion3.geometry.pitchdiameter*Cv3));
 
 %Surface Strength on Pinion1 
 p3.uncorrectSfc = 327*(gearbox.pinion3.material.hardness)+26000;

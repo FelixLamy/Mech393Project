@@ -1,3 +1,6 @@
+Gearbox_Parameters;
+Forces_Torques;
+
 %% Reaction Force Calculation
 
 gearbox.shaft.IN.RLZ = ((-gearbox.pinion2.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion2.loads.F(3))+((-gearbox.pinion1.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion1.loads.F(3));
