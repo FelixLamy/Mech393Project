@@ -60,7 +60,10 @@ gearbox.shaft.IN.sigmaMP2 = gearbox.shaft.IN.sigmaAP2;
 gearbox.shaft.IN.tauAP2 = gearbox.shaft.IN.factors.ktsP2*VBP2(3,1)*(gearbox.shaft.IN.dP2/2)/((pi*gearbox.shaft.IN.dP2^4)/32);
 gearbox.shaft.IN.tauMP2 = gearbox.shaft.IN.tauAP2;
 
-gearbox.shaft.IN.mod_safetyP2 = ((gearbox.shaft.IN.tauMP2/gearbox.shaft.IN.material.UTS)+(gearbox.shaft.IN.sigmaAP2/gearbox.shaft.IN.material.enduranceP2))^(-1);
+gearbox.shaft.IN.sigmaAP2_VM = sqrt(gearbox.shaft.IN.sigmaAP2^2 + 3*(gearbox.shaft.IN.tauAP2^2));
+gearbox.shaft.IN.sigmaMP2_VM = sqrt(gearbox.shaft.IN.sigmaMP2^2 + 3*(gearbox.shaft.IN.tauMP2^2));
+
+gearbox.shaft.IN.mod_safetyP2 = (gearbox.shaft.IN.material.enduranceP2*gearbox.shaft.IN.material.UTS)/((gearbox.shaft.IN.sigmaAP2_VM*gearbox.shaft.IN.material.UTS)+(gearbox.shaft.IN.material.enduranceP2*gearbox.shaft.IN.sigmaMP2_VM));
 
 %% Diameter centerline P1 - 0.5D <x<length
 
@@ -83,10 +86,12 @@ gearbox.shaft.IN.factors.kfP1 = 1 + gearbox.shaft.IN.factors.qP1*(gearbox.shaft.
 gearbox.shaft.IN.factors.kfsP1 = 1 + gearbox.shaft.IN.factors.qP1*(gearbox.shaft.IN.factors.ktsP1 - 1);
 gearbox.shaft.IN.factors.safety = 2;
 
-gearbox.shaft.IN.TMP1 = gearbox.shaft.IN.torsion(3);
-gearbox.shaft.IN.MAP1 = sqrt(VBP1(2,1)^2 + VBP1(2,2)^2);
-
-gearbox.shaft.IN.dP1 = ((32*gearbox.shaft.IN.factors.safety/pi)*((gearbox.shaft.IN.factors.kfP1*gearbox.shaft.IN.MAP1/gearbox.shaft.IN.material.enduranceP1)^2+(3/4)*( gearbox.shaft.IN.factors.kfsP1*gearbox.shaft.IN.TMP1/gearbox.shaft.IN.material.yield)^2)^(1/2))^(1/3);
+gearbox.shaft.IN.TMP1 = gearbox.shaft.IN.torsion(1)/2;
+gearbox.shaft.IN.TAP1 = gearbox.shaft.IN.TMP1; %repeated loading
+gearbox.shaft.IN.MMP1 = sqrt(VBP1(2,1)^2 + VBP1(2,2)^2)/2;
+gearbox.shaft.IN.MAP1 = gearbox.shaft.IN.MMP1; %repeated loading
+ 
+gearbox.shaft.IN.dP1 = ((32*gearbox.shaft.IN.factors.safety/pi)*((sqrt(((gearbox.shaft.IN.factors.kfP1*gearbox.shaft.IN.MAP1)^2)+((3/4)*(gearbox.shaft.IN.factors.kfsP1* gearbox.shaft.IN.TAP1)^2))/gearbox.shaft.IN.material.enduranceP1) + (sqrt(((gearbox.shaft.IN.factors.kfP1*gearbox.shaft.IN.MMP1)^2)+((3/4)*(gearbox.shaft.IN.factors.kfsP1* gearbox.shaft.IN.TMP1)^2))/gearbox.shaft.IN.material.UTS)))^(1/3);
 
 gearbox.shaft.IN.dP1 = floor(gearbox.shaft.IN.dP1)+ceil((gearbox.shaft.IN.dP1-floor(gearbox.shaft.IN.dP1))/0.25)*0.25;
 
@@ -109,9 +114,14 @@ gearbox.shaft.IN.factors.kfP1 = 1 + gearbox.shaft.IN.factors.qP1*(gearbox.shaft.
 gearbox.shaft.IN.factors.kfsP1 = 1 + gearbox.shaft.IN.factors.qP1*(gearbox.shaft.IN.factors.ktsP1 - 1);
 
 gearbox.shaft.IN.sigmaAP1 = gearbox.shaft.IN.factors.kfP1*sqrt((VBP1(2,1)*(gearbox.shaft.IN.dP1/2)/((pi*gearbox.shaft.IN.dP1^4)/64))^2+(VBP1(2,2)*(gearbox.shaft.IN.dP1/2)/((pi*gearbox.shaft.IN.dP1^4)/64))^2);
-gearbox.shaft.IN.tauMP1 = gearbox.shaft.IN.factors.ktsP1*VBP1(3,1)*(gearbox.shaft.IN.dP1/2)/((pi*gearbox.shaft.IN.dP1^4)/32);
-
-gearbox.shaft.IN.mod_safetyP1 = ((gearbox.shaft.IN.tauMP1/gearbox.shaft.IN.material.UTS)+(gearbox.shaft.IN.sigmaAP1/gearbox.shaft.IN.material.enduranceP1))^(-1);
+gearbox.shaft.IN.sigmaMP1 = gearbox.shaft.IN.sigmaAP1;
+gearbox.shaft.IN.tauAP1 = gearbox.shaft.IN.factors.ktsP1*VBP1(3,1)*(gearbox.shaft.IN.dP1/2)/((pi*gearbox.shaft.IN.dP1^4)/32);
+gearbox.shaft.IN.tauMP1 = gearbox.shaft.IN.tauAP1;
+ 
+gearbox.shaft.IN.sigmaAP1_VM = sqrt(gearbox.shaft.IN.sigmaAP1^2 + 3*(gearbox.shaft.IN.tauAP1^2));
+gearbox.shaft.IN.sigmaMP1_VM = sqrt(gearbox.shaft.IN.sigmaMP1^2 + 3*(gearbox.shaft.IN.tauMP1^2));
+ 
+gearbox.shaft.IN.mod_safetyP1 = (gearbox.shaft.IN.material.enduranceP1*gearbox.shaft.IN.material.UTS)/((gearbox.shaft.IN.sigmaAP1_VM*gearbox.shaft.IN.material.UTS)+(gearbox.shaft.IN.material.enduranceP1*gearbox.shaft.IN.sigmaMP1_VM));
 
 %% Key Safety factor in shaft at P2
 
