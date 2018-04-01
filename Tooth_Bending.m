@@ -194,7 +194,7 @@ gearbox.gear2.tooth_bending.Kb = 1; %no rim for now
 gearbox.gear2.tooth_bending.Ki = 1; %no idler
  
 %Bending Geometry Factor J
-gearbox.gear2.tooth_bending.J = 0.415; %from graph
+gearbox.gear2.tooth_bending.J = 0.41; %from graph
  
 %Bending Stress
 gearbox.gear2.tooth_bending.bending_stress = (gearbox.gear2.loads.tang_F*gearbox.gear2.geometry.diametral_pitch*gearbox.gear2.tooth_bending.Ka*gearbox.gear2.tooth_bending.Km*gearbox.gear2.tooth_bending.Ks*gearbox.gear2.tooth_bending.Kb*gearbox.gear2.tooth_bending.Ki)/(gearbox.gear2.geometry.facewidth*gearbox.gear2.tooth_bending.J*gearbox.gear2.tooth_bending.Kv);
@@ -304,7 +304,7 @@ gearbox.gear3.tooth_bending.Kb = 1; %no rim for now
 gearbox.gear3.tooth_bending.Ki = 1; %no idler
  
 %Bending Geometry Factor J
-gearbox.gear3.tooth_bending.J = 0.415; %from graph
+gearbox.gear3.tooth_bending.J = 0.41; %from graph
  
 %Bending Stress
 gearbox.gear3.tooth_bending.bending_stress = (gearbox.gear3.loads.tang_F*gearbox.gear3.geometry.diametral_pitch*gearbox.gear3.tooth_bending.Ka*gearbox.gear3.tooth_bending.Km*gearbox.gear3.tooth_bending.Ks*gearbox.gear3.tooth_bending.Kb*gearbox.gear3.tooth_bending.Ki)/(gearbox.gear3.geometry.facewidth*gearbox.gear3.tooth_bending.J*gearbox.gear3.tooth_bending.Kv);
