@@ -139,3 +139,11 @@ gearbox.shaft.IN.keyP2.material.yield = 26e3;
 gearbox.shaft.IN.keyP1.material.UTS = 47e3;
 gearbox.shaft.IN.keyP1.material.yield = 26e3;
 
+%% Key material for Idler shaft
+
+%AISI 1010 steel
+gearbox.shaft.ID.keyG2.material.UTS = 47e3;
+gearbox.shaft.ID.keyG2.material.yield = 26e3;
+gearbox.shaft.ID.keyP3.material.UTS = 47e3;
+gearbox.shaft.ID.keyP3.material.yield = 26e3;
+

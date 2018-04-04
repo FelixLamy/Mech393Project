@@ -1,10 +1,5 @@
 %%Surface Stress and Surface Strength for Mesh 1, 2 and 3 in Gearbox Configuration
 
-%Inputs required to calculate surface stress and strength
-Gearbox_Parameters;
-Forces_Torques;
-Tooth_Bending;
-
 cycles = 1E9; %life of gears
 
 Ca = 1.25; %application factor - uniform electric motor with moderate shock gears

@@ -51,8 +51,8 @@ gearbox.shaft.ID.factors.CreliabG2 = 0.868; %assume 90% reliability
 gearbox.shaft.ID.material.enduranceG2 = gearbox.shaft.ID.factors.CloadG2*gearbox.shaft.ID.factors.CsizeG2*gearbox.shaft.ID.factors.CsurfG2*gearbox.shaft.ID.factors.CtempG2*gearbox.shaft.ID.factors.CreliabG2*gearbox.shaft.ID.material.uncorrected_enduranceG2;
 
 gearbox.shaft.ID.factors.qG2 = 0.75; %assuming notch radius of 0.05 in
-gearbox.shaft.ID.factors.ktG2 = 0.97098*(0.05^(-0.21796)); %with r/d = 0.05, D/d = 1.2
-gearbox.shaft.ID.factors.ktsG2 = 0.83425*(0.05^(-0.21649)); %with r/d = 0.05, D/d = 1.2
+gearbox.shaft.ID.factors.ktG2 = 0.93836*(0.1^(-0.25759)); %with r/d = 0.1, D/d = 1.4
+gearbox.shaft.ID.factors.ktsG2 = 0.86331*(0.1^(-0.23865)); %with r/d = 0.1, D/d = 1.4
 
 gearbox.shaft.ID.factors.kfG2 = 1 + gearbox.shaft.ID.factors.qG2*(gearbox.shaft.ID.factors.ktG2 - 1);
 gearbox.shaft.ID.factors.kfsG2 = 1 + gearbox.shaft.ID.factors.qG2*(gearbox.shaft.ID.factors.ktsG2 - 1);
@@ -107,8 +107,8 @@ gearbox.shaft.ID.factors.CreliabP1 = 0.868; %assume 90% reliability
 gearbox.shaft.ID.material.enduranceP3 = gearbox.shaft.ID.factors.CloadP3*gearbox.shaft.ID.factors.CsizeP3*gearbox.shaft.ID.factors.CsurfP3*gearbox.shaft.ID.factors.CtempP3*gearbox.shaft.ID.factors.CreliabP3*gearbox.shaft.ID.material.uncorrected_enduranceP3;
 
 gearbox.shaft.ID.factors.qP3 = 0.75; %assuming notch radius of 0.05 in
-gearbox.shaft.ID.factors.ktP3 = 0.97098*(0.05^(-0.21796)); %with r/d = 0.05, D/d = 1.2
-gearbox.shaft.ID.factors.ktsP3 = 0.83425*(0.05^(-0.21649)); %with r/d = 0.05, D/d = 1.2
+gearbox.shaft.ID.factors.ktP3 = 0.95120*(0.1^(-0.23757)); %with r/d = 0.1, D/d = 1.08
+gearbox.shaft.ID.factors.ktsP3 = 0.90337*(0.1^(-0.12692)); %with r/d = 0.1, D/d = 1.08
 
 gearbox.shaft.ID.factors.kfP3 = 1 + gearbox.shaft.ID.factors.qP3*(gearbox.shaft.ID.factors.ktP3 - 1);
 gearbox.shaft.ID.factors.kfsP3 = 1 + gearbox.shaft.ID.factors.qP3*(gearbox.shaft.ID.factors.ktsP3 - 1);
@@ -123,66 +123,61 @@ gearbox.shaft.ID.sigmaMP3_VM = sqrt(gearbox.shaft.ID.sigmaMP3^2 + 3*(gearbox.sha
  
 gearbox.shaft.ID.mod_safetyP3 = (gearbox.shaft.ID.material.enduranceP3*gearbox.shaft.ID.material.UTS)/((gearbox.shaft.ID.sigmaAP3_VM*gearbox.shaft.ID.material.UTS)+(gearbox.shaft.ID.material.enduranceP3*gearbox.shaft.ID.sigmaMP3_VM));
 
-% %% Key Safety factor in shaft at G2
-% 
-% %Parallel key
-% gearbox.shaft.ID.keyG2.length = 2.5; %in
-% gearbox.shaft.ID.keyG2.width = 0.25; %in
-% gearbox.shaft.ID.keyG2.height = 0.25; %in
-% 
-% 
-% VBG2_left = ID_BM((gearbox.shaft.length-gearbox.shaft.geardist)*0.5+1,gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.F,gearbox.pinion3.loads.F,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
-% 
-% gearbox.shaft.ID.keyG2.factors.ktG2 = 2.2; %at standard r/d ratio of 0.021
-% gearbox.shaft.ID.keyG2.factors.kts2 = 3; %at standard r/d ratio of 0.021
-% gearbox.shaft.ID.keyG2.factors.qG2 = 0.67; %at r = 0.021 and figure 6-36
-% 
-% %Stress in Shear
-% 
-% gearbox.shaft.ID.keyG2.loads.FA = VBG2_left(3,1)/(gearbox.shaft.ID.dG2/2);
-% gearbox.shaft.ID.keyG2.loads.FM = gearbox.shaft.ID.keyG2.loads.FA; %repeated loading
-% gearbox.shaft.ID.keyG2.loads.TA = gearbox.shaft.ID.keyG2.loads.FA/(gearbox.shaft.ID.keyG2.width*gearbox.shaft.ID.keyG2.length);
-% gearbox.shaft.ID.keyG2.loads.TM = gearbox.shaft.ID.keyG2.loads.TA; %repeated loading
-% 
-% gearbox.shaft.ID.keyG2.sigmaA = sqrt(3*(gearbox.shaft.ID.keyG2.loads.TA^2));
-% gearbox.shaft.ID.keyG2.sigmaM = gearbox.shaft.ID.keyG2.sigmaA;
-% 
-% gearbox.shaft.ID.keyG2.shearsafety = 1/((gearbox.shaft.ID.keyG2.sigmaA/gearbox.shaft.ID.material.enduranceG2)+(gearbox.shaft.ID.keyG2.sigmaM/gearbox.shaft.ID.material.UTS));
-% 
-% %Stress in Bearing
-% gearbox.shaft.ID.keyG2.sigmaMax = (gearbox.shaft.ID.keyG2.loads.FA + gearbox.shaft.ID.keyG2.loads.FM)/((gearbox.shaft.ID.keyG2.height/2)*gearbox.shaft.ID.keyG2.length);
-% 
-% gearbox.shaft.ID.keyG2.bearingsafety = gearbox.shaft.ID.material.yield/gearbox.shaft.ID.keyG2.sigmaMax;
-% 
-% %% Key Safety Factor in shaft at P3
-% 
-% %Parallel key
-% gearbox.shaft.ID.keyP3.length = 2.5; %in
-% gearbox.shaft.ID.keyP3.width = 0.25; %in
-% gearbox.shaft.ID.keyP3.height = 0.25; %in
-% 
-% 
-% VBP3_right = ID_BM((gearbox.shaft.length-gearbox.shaft.geardist)*0.5+1,gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.F,gearbox.pinion3.loads.F,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
-% 
-% gearbox.shaft.ID.keyG2.factors.ktG2 = 2.2; %at standard r/d ratio of 0.021
-% gearbox.shaft.ID.keyG2.factors.kts2 = 3; %at standard r/d ratio of 0.021
-% gearbox.shaft.ID.keyG2.factors.qG2 = 0.67; %at r = 0.021 and figure 6-36
-% 
-% %Stress in Shear
-% 
-% gearbox.shaft.ID.keyG2.loads.FA = gearbox.gear2.loads.T/(gearbox.shaft.ID.dG2/2);
-% gearbox.shaft.ID.keyG2.loads.FM = gearbox.shaft.ID.keyG2.loads.FA; %repeated loading
-% gearbox.shaft.ID.keyG2.loads.TA = gearbox.shaft.ID.keyG2.loads.FA/(gearbox.shaft.ID.keyG2.width*gearbox.shaft.ID.keyG2.length);
-% gearbox.shaft.ID.keyG2.loads.TM = gearbox.shaft.ID.keyG2.loads.TA; %repeated loading
-% 
-% gearbox.shaft.ID.keyG2.sigmaA = sqrt(3*(gearbox.shaft.ID.keyG2.loads.TA^2));
-% gearbox.shaft.ID.keyG2.sigmaM = gearbox.shaft.ID.keyG2.sigmaA;
-% 
-% gearbox.shaft.ID.keyG2.shearsafety = 1/((gearbox.shaft.ID.keyG2.sigmaA/gearbox.shaft.ID.material.enduranceG2)+(gearbox.shaft.ID.keyG2.sigmaM/gearbox.shaft.ID.material.UTS));
-% 
-% %Stress in Bearing
-% gearbox.shaft.ID.keyG2.sigmaMax = (gearbox.shaft.ID.keyG2.loads.FA + gearbox.shaft.ID.keyG2.loads.FM)/((gearbox.shaft.ID.keyG2.height/2)*gearbox.shaft.ID.keyG2.length);
-% 
-% gearbox.shaft.ID.keyG2.bearingsafety = gearbox.shaft.ID.material.yield/gearbox.shaft.ID.keyG2.sigmaMax;
+%% Key Safety factor in shaft at G2
 
+gearbox.shaft.ID.keyG2.length = gearbox.gear2.geometry.facewidth + 0.5; %in
+gearbox.shaft.ID.keyG2.width = 0.25; %in
 
+VBG2_key = ID_BM((gearbox.shaft.length-gearbox.shaft.geardist)*0.5-0.25,gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.FW,gearbox.pinion3.loads.FW,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
+
+gearbox.shaft.ID.keyG2.factors.ktG2 = 2.2; %at standard r/d ratio of 0.021
+gearbox.shaft.ID.keyG2.factors.ktsG2 = 3; %at standard r/d ratio of 0.021
+gearbox.shaft.ID.keyG2.factors.qG2 = 0.67; %at r = 0.021 and figure 6-36
+gearbox.shaft.ID.keyG2.factors.kfG2 = 1 + gearbox.shaft.ID.keyG2.factors.qG2*(gearbox.shaft.ID.keyG2.factors.ktG2-1);
+gearbox.shaft.ID.keyG2.factors.kfsG2 = 1 + gearbox.shaft.ID.keyG2.factors.qG2*(gearbox.shaft.ID.keyG2.factors.ktsG2-1);
+
+gearbox.shaft.ID.keyG2.sigmaAG2 = gearbox.shaft.ID.keyG2.factors.kfG2*sqrt((VBG2_key(2,1)*(gearbox.shaft.ID.dG2/2)/((pi*gearbox.shaft.ID.dG2^4)/64))^2+(VBG2_key(2,2)*(gearbox.shaft.ID.dG2/2)/((pi*gearbox.shaft.ID.dG2^4)/64))^2);
+gearbox.shaft.ID.keyG2.tauMG2 = gearbox.shaft.ID.keyG2.factors.ktsG2*VBG2_key(3,1)*(gearbox.shaft.ID.dG2/2)/((pi*gearbox.shaft.ID.dG2^4)/32);
+ 
+gearbox.shaft.ID.keyG2.sigmaAG2_VM = gearbox.shaft.ID.sigmaAG2;
+gearbox.shaft.ID.keyG2.sigmaMG2_VM = sqrt(3*(gearbox.shaft.ID.tauMG2^2));
+ 
+gearbox.shaft.ID.keyG2.mod_safetyG2 = (gearbox.shaft.ID.material.enduranceG2*gearbox.shaft.ID.material.UTS)/((gearbox.shaft.ID.keyG2.sigmaAG2_VM*gearbox.shaft.ID.material.UTS)+(gearbox.shaft.ID.material.enduranceG2*gearbox.shaft.ID.keyG2.sigmaMG2_VM));
+
+%% %% Key Safety factor in shaft at P3
+ 
+gearbox.shaft.ID.keyP3.length = gearbox.pinion3.geometry.facewidth + 0.5; %in
+gearbox.shaft.ID.keyP3.width = 0.25; %in
+ 
+VBP3_key = ID_BM((gearbox.shaft.length+gearbox.shaft.geardist)*0.5+0.25,gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.FW,gearbox.pinion3.loads.FW,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
+ 
+gearbox.shaft.ID.keyP3.factors.ktP3 = 2.2; %at standard r/d ratio of 0.021
+gearbox.shaft.ID.keyP3.factors.ktsP3 = 3; %at standard r/d ratio of 0.021
+gearbox.shaft.ID.keyP3.factors.qP3 = 0.67; %at r = 0.021 and figure 6-36
+gearbox.shaft.ID.keyP3.factors.kfP3 = 1 + gearbox.shaft.ID.keyP3.factors.qP3*(gearbox.shaft.ID.keyP3.factors.ktP3-1);
+gearbox.shaft.ID.keyP3.factors.kfsP3 = 1 + gearbox.shaft.ID.keyP3.factors.qP3*(gearbox.shaft.ID.keyP3.factors.ktsP3-1);
+ 
+gearbox.shaft.ID.keyP3.sigmaAP1 = gearbox.shaft.ID.keyP3.factors.kfP3*sqrt((VBP3_key(2,1)*(gearbox.shaft.ID.dP3/2)/((pi*gearbox.shaft.ID.dP3^4)/64))^2+(VBP3_key(2,2)*(gearbox.shaft.ID.dP3/2)/((pi*gearbox.shaft.ID.dP3^4)/64))^2);
+gearbox.shaft.ID.keyP3.tauMP1 = gearbox.shaft.ID.keyP3.factors.ktsP3*VBP3_key(3,1)*(gearbox.shaft.ID.dP3/2)/((pi*gearbox.shaft.ID.dP3^4)/32);
+ 
+gearbox.shaft.ID.keyP3.sigmaAP3_VM = gearbox.shaft.ID.sigmaAP3;
+gearbox.shaft.ID.keyP3.sigmaMP3_VM = sqrt(3*(gearbox.shaft.ID.tauMP3^2));
+ 
+gearbox.shaft.ID.keyP3.mod_safetyP3 = (gearbox.shaft.ID.material.enduranceP3*gearbox.shaft.ID.material.UTS)/((gearbox.shaft.ID.keyP3.sigmaAP3_VM*gearbox.shaft.ID.material.UTS)+(gearbox.shaft.ID.material.enduranceP3*gearbox.shaft.ID.keyP3.sigmaMP3_VM));
+
+%% Keys In Idler Shaft
+
+gearbox.shaft.ID.keyG2.shear = abs(gearbox.gear2.loads.T/(0.5*gearbox.shaft.ID.dG2))/(gearbox.shaft.ID.keyG2.length*gearbox.shaft.ID.keyG2.width);
+gearbox.shaft.ID.keyP3.shear = abs(gearbox.pinion3.loads.T/(0.5*gearbox.shaft.ID.dP3))/(gearbox.shaft.ID.keyP3.length*gearbox.shaft.ID.keyP3.width);
+
+%assume keys are square
+gearbox.shaft.ID.keyG2.bearing = abs(gearbox.gear2.loads.T/(0.5*gearbox.shaft.ID.dG2))/(gearbox.shaft.ID.keyG2.length*gearbox.shaft.ID.keyG2.width*0.5);
+gearbox.shaft.ID.keyP3.bearing = abs(gearbox.pinion3.loads.T/(0.5*gearbox.shaft.ID.dP3))/(gearbox.shaft.ID.keyP3.length*gearbox.shaft.ID.keyP3.width*0.5);
+
+%Shear safety factor
+gearbox.shaft.ID.keyG2.safety_shear = gearbox.shaft.ID.keyG2.material.UTS/sqrt(3*gearbox.shaft.ID.keyG2.shear^2); % since the shear is the mean, we use UTS
+gearbox.shaft.ID.keyP3.safety_shear = gearbox.shaft.ID.keyP3.material.UTS/sqrt(3*gearbox.shaft.ID.keyP3.shear^2);
+
+%Bearing Safety Factor
+gearbox.shaft.ID.keyG2.safety_bearing = gearbox.shaft.ID.keyG2.material.yield/gearbox.shaft.ID.keyG2.bearing;
+gearbox.shaft.ID.keyP3.safety_bearing = gearbox.shaft.ID.keyP3.material.yield/gearbox.shaft.ID.keyP3.bearing;
