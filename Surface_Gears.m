@@ -1,4 +1,8 @@
-%%Surface Stress and Surface Strength for Mesh 1, 2 and 3 in Gearbox Configuration
+Gearbox_Parameters;
+Forces_Torques;
+Tooth_Bending;
+
+%% Surface Stress and Surface Strength for Mesh 1, 2 and 3 in Gearbox Configuration
 
 cycles = 1E9; %life of gears
 
