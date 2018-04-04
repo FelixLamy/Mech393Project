@@ -96,7 +96,7 @@ gearbox.gear1.tooth_bending.uncorrected_strength = (77.3*gearbox.gear1.material.
 gearbox.gear1.tooth_bending.Kt = 1;
  
 %Life Factor Kl
-gearbox.gear1.tooth_bending.Kl = 1.3558*((gearbox.pinion2.geometry.N/gearbox.gear2.geometry.N)*gearbox.cycles)^(-0.0178);
+gearbox.gear1.tooth_bending.Kl = 1.3558*((gearbox.gear1.geometry.N/gearbox.pinion1.geometry.N)*gearbox.cycles)^(-0.0178);
  
 %Reliability Factor Kr
 gearbox.gear1.tooth_bending.Kr = 1; %90% reliability
@@ -194,7 +194,7 @@ gearbox.gear2.tooth_bending.Kb = 1; %no rim for now
 gearbox.gear2.tooth_bending.Ki = 1; %no idler
  
 %Bending Geometry Factor J
-gearbox.gear2.tooth_bending.J = 0.415; %from graph
+gearbox.gear2.tooth_bending.J = 0.41; %from graph
  
 %Bending Stress
 gearbox.gear2.tooth_bending.bending_stress = (gearbox.gear2.loads.tang_F*gearbox.gear2.geometry.diametral_pitch*gearbox.gear2.tooth_bending.Ka*gearbox.gear2.tooth_bending.Km*gearbox.gear2.tooth_bending.Ks*gearbox.gear2.tooth_bending.Kb*gearbox.gear2.tooth_bending.Ki)/(gearbox.gear2.geometry.facewidth*gearbox.gear2.tooth_bending.J*gearbox.gear2.tooth_bending.Kv);
@@ -206,7 +206,7 @@ gearbox.gear2.tooth_bending.uncorrected_strength = (77.3*gearbox.gear2.material.
 gearbox.gear2.tooth_bending.Kt = 1;
  
 %Life Factor Kl
-gearbox.gear2.tooth_bending.Kl = 1.3558*((gearbox.pinion2.geometry.N/gearbox.gear2.geometry.N)*gearbox.cycles)^(-0.0178);
+gearbox.gear2.tooth_bending.Kl = 1.3558*((gearbox.gear2.geometry.N/gearbox.pinion2.geometry.N)*gearbox.cycles)^(-0.0178);
  
 %Reliability Factor Kr
 gearbox.gear2.tooth_bending.Kr = 1; %90% reliability
@@ -304,7 +304,7 @@ gearbox.gear3.tooth_bending.Kb = 1; %no rim for now
 gearbox.gear3.tooth_bending.Ki = 1; %no idler
  
 %Bending Geometry Factor J
-gearbox.gear3.tooth_bending.J = 0.415; %from graph
+gearbox.gear3.tooth_bending.J = 0.41; %from graph
  
 %Bending Stress
 gearbox.gear3.tooth_bending.bending_stress = (gearbox.gear3.loads.tang_F*gearbox.gear3.geometry.diametral_pitch*gearbox.gear3.tooth_bending.Ka*gearbox.gear3.tooth_bending.Km*gearbox.gear3.tooth_bending.Ks*gearbox.gear3.tooth_bending.Kb*gearbox.gear3.tooth_bending.Ki)/(gearbox.gear3.geometry.facewidth*gearbox.gear3.tooth_bending.J*gearbox.gear3.tooth_bending.Kv);
@@ -316,7 +316,7 @@ gearbox.gear3.tooth_bending.uncorrected_strength = (77.3*gearbox.gear3.material.
 gearbox.gear3.tooth_bending.Kt = 1;
  
 %Life Factor Kl
-gearbox.gear3.tooth_bending.Kl = 1.3558*((gearbox.pinion3.geometry.N/gearbox.gear3.geometry.N)*gearbox.cycles)^(-0.0178);
+gearbox.gear3.tooth_bending.Kl = 1.3558*((gearbox.gear3.geometry.N/gearbox.pinion3.geometry.N)*gearbox.cycles)^(-0.0178);
  
 %Reliability Factor Kr
 gearbox.gear3.tooth_bending.Kr = 1; %90% reliability

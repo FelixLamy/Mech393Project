@@ -6,6 +6,8 @@ Forces_Torques
 Surface_Gears
 Tooth_Bending
 Shafts
+Input_Shaft
+Idler_Shaft
 
 fprintf('--------------------------------- \n')
 fprintf('Pitch Diameters\n')
@@ -36,3 +38,13 @@ fprintf('Surface Safety Factor\n')
 fprintf('Mesh 1: %f\n', N.surface.pinion1.mesh1)
 fprintf('Mesh 2: %f\n', N.surface.pinion2.mesh2)
 fprintf('Mesh 3: %f\n', N.surface.pinion3.mesh3)
+fprintf('--------------------------------- \n')
+fprintf('Idler Shaft Diameter\n')
+fprintf('Gear 2: %f\n', gearbox.shaft.ID.dG2)
+fprintf('Pinion 3: %f\n', gearbox.shaft.ID.dP3)
+fprintf('--------------------------------- \n')
+fprintf('Idler Shaft Safety Factor\n')
+fprintf('Gear 2: %f\n', gearbox.shaft.ID.mod_safetyG2)
+fprintf('Pinion 3: %f\n', gearbox.shaft.ID.mod_safetyP3)
+
+

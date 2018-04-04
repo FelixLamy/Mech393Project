@@ -31,12 +31,11 @@ gearbox.shaft.ID.factors.kfG2 = 1 + gearbox.shaft.ID.factors.qG2*(gearbox.shaft.
 gearbox.shaft.ID.factors.kfsG2 = 1 + gearbox.shaft.ID.factors.qG2*(gearbox.shaft.ID.factors.ktsG2 - 1);
 gearbox.shaft.ID.factors.safety = 2;
 
-gearbox.shaft.ID.TMG2 = gearbox.shaft.ID.torsion(1)/2;
-gearbox.shaft.ID.TAG2 = gearbox.shaft.ID.TMG2; %repeated loading
-gearbox.shaft.ID.MMG2 = sqrt(VBG2(2,1)^2 + VBG2(2,2)^2)/2;
-gearbox.shaft.ID.MAG2 = gearbox.shaft.ID.MMG2; %repeated loading
+gearbox.shaft.ID.TMG2 = gearbox.shaft.ID.torsion(1); %fully reversed loading
+gearbox.shaft.ID.MAG2 = sqrt(VBG2(2,1)^2 + VBG2(2,2)^2); 
 
-gearbox.shaft.ID.dG2 = ((32*gearbox.shaft.ID.factors.safety/pi)*((sqrt(((gearbox.shaft.ID.factors.kfG2*gearbox.shaft.ID.MAG2)^2)+((3/4)*(gearbox.shaft.ID.factors.kfsG2* gearbox.shaft.ID.TAG2)^2))/gearbox.shaft.ID.material.enduranceG2) + (sqrt(((gearbox.shaft.ID.factors.kfG2*gearbox.shaft.ID.MMG2)^2)+((3/4)*(gearbox.shaft.ID.factors.kfsG2* gearbox.shaft.ID.TMG2)^2))/gearbox.shaft.ID.material.UTS)))^(1/3);
+gearbox.shaft.ID.dG2 = ((32*gearbox.shaft.ID.factors.safety/pi)*sqrt((gearbox.shaft.ID.factors.kfG2*gearbox.shaft.ID.MAG2/gearbox.shaft.ID.material.enduranceG2)^2+(3/4)*(gearbox.shaft.ID.factors.kfsG2*gearbox.shaft.ID.TMG2/gearbox.shaft.ID.material.UTS)^2))^(1/3);
+
 
 gearbox.shaft.ID.dG2 = floor(gearbox.shaft.ID.dG2)+ceil((gearbox.shaft.ID.dG2-floor(gearbox.shaft.ID.dG2))/0.25)*0.25; %round up to next quarter
 
@@ -89,14 +88,12 @@ gearbox.shaft.ID.factors.kfP3 = 1 + gearbox.shaft.ID.factors.qP3*(gearbox.shaft.
 gearbox.shaft.ID.factors.kfsP3 = 1 + gearbox.shaft.ID.factors.qP3*(gearbox.shaft.ID.factors.ktsP3 - 1);
 gearbox.shaft.ID.factors.safety = 2;
 
-gearbox.shaft.ID.TMP3 = gearbox.shaft.ID.torsion(1)/2;
-gearbox.shaft.ID.TAP3 = gearbox.shaft.ID.TMP3; %repeated loading
-gearbox.shaft.ID.MMP3 = sqrt(VBP3(2,1)^2 + VBP3(2,2)^2)/2;
-gearbox.shaft.ID.MAP3 = gearbox.shaft.ID.MMP3; %repeated loading
- 
-gearbox.shaft.ID.dP3 = ((32*gearbox.shaft.ID.factors.safety/pi)*((sqrt(((gearbox.shaft.ID.factors.kfP3*gearbox.shaft.ID.MAP3)^2)+((3/4)*(gearbox.shaft.ID.factors.kfsP3* gearbox.shaft.ID.TAP3)^2))/gearbox.shaft.ID.material.enduranceP3) + (sqrt(((gearbox.shaft.ID.factors.kfP3*gearbox.shaft.ID.MMP3)^2)+((3/4)*(gearbox.shaft.ID.factors.kfsP3* gearbox.shaft.ID.TMP3)^2))/gearbox.shaft.ID.material.UTS)))^(1/3);
+gearbox.shaft.ID.TMP3 = gearbox.shaft.ID.torsion(1); %fully reversed loading
+gearbox.shaft.ID.MAP3 = sqrt(VBP3(2,1)^2 + VBP3(2,2)^2); 
 
-gearbox.shaft.ID.dP3 = floor(gearbox.shaft.ID.dP3)+ceil((gearbox.shaft.ID.dP3-floor(gearbox.shaft.ID.dP3))/0.25)*0.25;
+gearbox.shaft.ID.dP3 = ((32*gearbox.shaft.ID.factors.safety/pi)*sqrt((gearbox.shaft.ID.factors.kfP3*gearbox.shaft.ID.MAP3/gearbox.shaft.ID.material.enduranceP3)^2+(3/4)*(gearbox.shaft.ID.factors.kfsP3*gearbox.shaft.ID.TMP3/gearbox.shaft.ID.material.UTS)^2))^(1/3);
+
+gearbox.shaft.ID.dP3 = floor(gearbox.shaft.ID.dP3)+ceil((gearbox.shaft.ID.dP3-floor(gearbox.shaft.ID.dP3))/0.25)*0.25; %round up to next quarter
 
 %% Recalculate safetly factor
 
