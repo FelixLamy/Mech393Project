@@ -38,7 +38,7 @@ gearbox.pinion1.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardis
 gearbox.pinion1.material.hardness = 197;
 gearbox.pinion1.material.poissonratio = 0.29;
 %gearbox.pinion1.material.elongation = 25;       %Elongation over 2 in
-gearbox.pinion1.material.yieldstrength = 66.7e3;
+gearbox.pinion1.material.yieldstrenght = 66.7e3;
 gearbox.pinion1.material.youngsmodulus = 29.7E6;
 gearbox.pinion1.material.quality = 6;
 
@@ -53,7 +53,7 @@ gearbox.gear1.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardist)
 gearbox.gear1.material.hardness = 197;
 gearbox.gear1.material.poissonratio = 0.29;
 %gearbox.gear1.material.elongation = 25;       %Elongation over 2 in
-gearbox.gear1.material.yieldstrength = 66.7e3;
+gearbox.gear1.material.yieldstrenght = 66.7e3;
 gearbox.gear1.material.youngsmodulus = 29.7E6;
 gearbox.gear1.material.quality = 6;
 
@@ -67,7 +67,7 @@ gearbox.pinion2.geometry.position = [(gearbox.shaft.length-gearbox.shaft.geardis
 gearbox.pinion2.material.hardness = 197;
 gearbox.pinion2.material.poissonratio = 0.29;
 %gearbox.pinion2.material.elongation = 25;       %Elongation over 2 in
-gearbox.pinion2.material.yieldstrength = 66.7e3;
+gearbox.pinion2.material.yieldstrenght = 66.7e3;
 gearbox.pinion2.material.youngsmodulus = 29.7E6;
 gearbox.pinion2.material.quality = 6;
 
@@ -81,7 +81,7 @@ gearbox.gear2.geometry.position = [(gearbox.shaft.length-gearbox.shaft.geardist)
 gearbox.gear2.material.hardness = 197;
 gearbox.gear2.material.poissonratio = 0.29;
 %gearbox.gear2.material.elongation = 25;       %Elongation over 2 in
-gearbox.gear2.material.yieldstrength = 66.7e3;
+gearbox.gear2.material.yieldstrenght = 66.7e3;
 gearbox.gear2.material.youngsmodulus = 29.7E6;
 gearbox.gear2.material.quality = 6;
 
@@ -96,7 +96,7 @@ gearbox.pinion3.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardis
 gearbox.pinion3.material.hardness = 197;
 gearbox.pinion3.material.poissonratio = 0.29;
 %gearbox.pinion3.material.elongation = 25;       %Elongation over 2 in
-gearbox.pinion3.material.yieldstrength = 66.7e3;
+gearbox.pinion3.material.yieldstrenght = 66.7e3;
 gearbox.pinion3.material.youngsmodulus = 29.7E6;
 gearbox.pinion3.material.quality = 6;
 
@@ -110,7 +110,7 @@ gearbox.gear3.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardist)
 gearbox.gear3.material.hardness = 197;
 gearbox.gear3.material.poissonratio = 0.29;
 %gearbox.gear3.material.elongation = 25;       %Elongation over 2 in
-gearbox.gear3.material.yieldstrength = 66.7e3;
+gearbox.gear3.material.yieldstrenght = 66.7e3;
 gearbox.gear3.material.youngsmodulus = 29.7E6; %psi
 gearbox.gear3.material.quality = 6;
 
@@ -120,9 +120,6 @@ gearbox.gear3.material.quality = 6;
 gearbox.shaft.IN.material.yield = 77e3; %psi
 gearbox.shaft.IN.material.UTS = 91e3; %psi
 
-%% Idler Shaft
-
-%for carbon steel 1045 cold rolled
-gearbox.shaft.ID.material.yield = 77e3; %psi
-gearbox.shaft.ID.material.UTS = 91e3; %psi
+gearbox.shaft.IN.material.yield = 77e3; %psi
+gearbox.shaft.IN.material.UTS = 91e3;
 

@@ -12,7 +12,7 @@ gearbox.shaft.IN.torsion = [gearbox.pinion1.loads.T+gearbox.pinion2.loads.T,gear
 
 %% Diameter 0<x<centerline of P2 + 0.5D
 
-VBP2 = IN_BM((gearbox.shaft.length-gearbox.shaft.geardist)*0.5+(gearbox.pinion1.geometry.pitchdiameter*0.5),gearbox.pinion2.geometry.position(1),gearbox.pinion1.geometry.position(1),gearbox.shaft.length,gearbox.pinion2.loads.F,gearbox.pinion1.loads.F,gearbox.shaft.IN.ROY,gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLY,gearbox.shaft.IN.RLZ,gearbox.shaft.IN.torsion);
+VBP2 = IN_BM((gearbox.shaft.length-gearbox.shaft.geardist)*0.5+(gearbox.pinion1.geometry.facewidth*0.5),gearbox.pinion2.geometry.position(1),gearbox.pinion1.geometry.position(1),gearbox.shaft.length,gearbox.pinion2.loads.F,gearbox.pinion1.loads.F,gearbox.shaft.IN.ROY,gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLY,gearbox.shaft.IN.RLZ,gearbox.shaft.IN.torsion);
 
 gearbox.shaft.IN.material.uncorrected_enduranceP2 = 0.5*gearbox.shaft.IN.material.UTS;
 gearbox.shaft.IN.factors.CloadP2 = 1; %torsion and bending
@@ -70,7 +70,7 @@ gearbox.shaft.IN.mod_safetyP2 = (gearbox.shaft.IN.material.enduranceP2*gearbox.s
 
 %% Diameter centerline P1 - 0.5D <x<length
 
-VBP1 = IN_BM((gearbox.shaft.length+gearbox.shaft.geardist)*0.5-(gearbox.pinion1.geometry.pitchdiameter*0.5),gearbox.pinion2.geometry.position(1),gearbox.pinion1.geometry.position(1),gearbox.shaft.length,gearbox.pinion2.loads.F,gearbox.pinion1.loads.F,gearbox.shaft.IN.ROY,gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLY,gearbox.shaft.IN.RLZ,gearbox.shaft.IN.torsion);
+VBP1 = IN_BM((gearbox.shaft.length+gearbox.shaft.geardist)*0.5-(gearbox.pinion1.geometry.facewidth*0.5),gearbox.pinion2.geometry.position(1),gearbox.pinion1.geometry.position(1),gearbox.shaft.length,gearbox.pinion2.loads.F,gearbox.pinion1.loads.F,gearbox.shaft.IN.ROY,gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLY,gearbox.shaft.IN.RLZ,gearbox.shaft.IN.torsion);
 
 gearbox.shaft.IN.material.uncorrected_enduranceP1 = 0.5*gearbox.shaft.IN.material.UTS;
 gearbox.shaft.IN.factors.CloadP1 = 1; %torsion and bending
@@ -102,7 +102,7 @@ gearbox.shaft.IN.dP1 = floor(gearbox.shaft.IN.dP1)+ceil((gearbox.shaft.IN.dP1-fl
 
 gearbox.shaft.IN.material.uncorrected_enduranceP1 = 0.5*gearbox.shaft.IN.material.UTS;
 gearbox.shaft.IN.factors.CloadP1 = 1; %torsion and bending
-gearbox.shaft.IN.factors.CsizeP1 = 0.869*gearbox.shaft.IN.dP2^(-0.097);
+gearbox.shaft.IN.factors.CsizeP1 = 0.869*gearbox.shaft.IN.dP1^(-0.097);
 gearbox.shaft.IN.factors.CsurfP1 = 2.7*(gearbox.shaft.IN.material.UTS/(1e3))^(-.265); %cold rolled
 gearbox.shaft.IN.factors.CtempP1 = 1;
 gearbox.shaft.IN.factors.CreliabP1 = 0.868; %assume 90% reliability

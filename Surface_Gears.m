@@ -1,4 +1,4 @@
-%%Surface Stress and Surface Strength for Mesh 1 and 2 in Gearbox Configuration
+%%Surface Stress and Surface Strength for Mesh 1, 2 and 3 in Gearbox Configuration
 
 %Inputs required to calculate surface stress and strength
 Gearbox_Parameters;
@@ -27,7 +27,7 @@ Wt1 = gearbox.pinion1.loads.tang_F;
 Wt2 = gearbox.pinion2.loads.tang_F;
 Wt3 = gearbox.pinion3.loads.tang_F;
 
-%Elastic Coefficient - all pinions have same material properties as both
+%Elastic Coefficient - all pinions have same material properties as
 %gears in meshes
 Cp = sqrt(1/(2*pi*(1-(gearbox.pinion1.material.poissonratio)^2)/gearbox.pinion1.material.youngsmodulus));
 
@@ -62,6 +62,7 @@ mesh1.rho2 = (gearbox.pinion1.geometry.pitchdiameter/2 + gearbox.gear1.geometry.
 I1 = cos(gearbox.pinion1.geometry.pressure_angle)/((1/mesh1.rho1 + 1/mesh1.rho2)*gearbox.pinion1.geometry.pitchdiameter);
 
 %Surface Stress on Pinion-Gear 
+
 p1.surfstress = Cp*sqrt(Wt1*Ca*Cm1*Cs*Cf/(F1*I1*gearbox.pinion1.geometry.pitchdiameter*Cv1));
 
 %Surface Strength on Pinion1 and Gear 1 
