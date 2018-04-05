@@ -28,95 +28,95 @@ gearbox.pinion3.geometry.omega = gearbox.gear2.geometry.omega;
 gearbox.gear3.geometry.omega = (gearbox.pinion3.geometry.N/gearbox.gear3.geometry.N)*gearbox.pinion3.geometry.omega;
 
 %% Pinion 1 Parameters
-gearbox.pinion1.geometry.diametral_pitch = 4;
+gearbox.pinion1.geometry.diametral_pitch = 4.5;
 gearbox.pinion1.geometry.facewidth = 12/gearbox.pinion1.geometry.diametral_pitch;
 gearbox.pinion1.geometry.pitchdiameter = gearbox.pinion1.geometry.N/gearbox.pinion1.geometry.diametral_pitch;
 gearbox.pinion1.geometry.pressure_angle = 20;
 gearbox.pinion1.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardist)*0.5;0;0];
 
-%JIS S45C Steel
-gearbox.pinion1.material.hardness = 197;
-gearbox.pinion1.material.poissonratio = 0.29;
+%JIS S45C Steel - - - AISI 303
+gearbox.pinion1.material.hardness = 228;
+gearbox.pinion1.material.poissonratio = 0.25;
 %gearbox.pinion1.material.elongation = 25;       %Elongation over 2 in
-gearbox.pinion1.material.yieldstrength = 66.7e3;
-gearbox.pinion1.material.youngsmodulus = 29.7E6;
+gearbox.pinion1.material.yieldstrenght = 100e3;
+gearbox.pinion1.material.youngsmodulus = 28E6;
 gearbox.pinion1.material.quality = 6;
-gearbox.pinion1.material.density = 0.284;
+gearbox.pinion1.material.density = 0.289;
 
 %% Gear 1 Parameters
-gearbox.gear1.geometry.diametral_pitch = 4;
+gearbox.gear1.geometry.diametral_pitch = 4.5;
 gearbox.gear1.geometry.facewidth = 12/gearbox.gear1.geometry.diametral_pitch;
 gearbox.gear1.geometry.pitchdiameter = gearbox.gear1.geometry.N/gearbox.gear1.geometry.diametral_pitch;
 gearbox.gear1.geometry.pressure_angle = 20;
 gearbox.gear1.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardist)*0.5;0;0];
 
-gearbox.gear1.material.hardness = 197;
-gearbox.gear1.material.poissonratio = 0.29;
+gearbox.gear1.material.hardness = 228;
+gearbox.gear1.material.poissonratio = 0.25;
 %gearbox.gear1.material.elongation = 25;       %Elongation over 2 in
-gearbox.gear1.material.yieldstrength = 66.7e3;
-gearbox.gear1.material.youngsmodulus = 29.7E6;
+gearbox.gear1.material.yieldstrenght = 100e3;
+gearbox.gear1.material.youngsmodulus = 28E6;
 gearbox.gear1.material.quality = 6;
-gearbox.gear1.material.density = 0.284;
+gearbox.gear1.material.density = 0.289;
 
 %% Pinion 2 Parameters
-gearbox.pinion2.geometry.diametral_pitch =4;
+gearbox.pinion2.geometry.diametral_pitch =4.5;
 gearbox.pinion2.geometry.facewidth = 12/gearbox.pinion2.geometry.diametral_pitch;
 gearbox.pinion2.geometry.pitchdiameter = gearbox.pinion2.geometry.N/gearbox.pinion2.geometry.diametral_pitch;
 gearbox.pinion2.geometry.pressure_angle = 20;
 gearbox.pinion2.geometry.position = [(gearbox.shaft.length-gearbox.shaft.geardist)*0.5;0;0];
 
-gearbox.pinion2.material.hardness = 197;
-gearbox.pinion2.material.poissonratio = 0.29;
+gearbox.pinion2.material.hardness = 228;
+gearbox.pinion2.material.poissonratio = 0.25;
 %gearbox.pinion2.material.elongation = 25;       %Elongation over 2 in
-gearbox.pinion2.material.yieldstrength = 66.7e3;
-gearbox.pinion2.material.youngsmodulus = 29.7E6;
+gearbox.pinion2.material.yieldstrenght = 100e3;
+gearbox.pinion2.material.youngsmodulus = 28E6;
 gearbox.pinion2.material.quality = 6;
-gearbox.pinion2.material.density = 0.284;
+gearbox.pinion2.material.density = 0.289;
 
 %% Gear 2 Parameters
-gearbox.gear2.geometry.diametral_pitch = 4;
+gearbox.gear2.geometry.diametral_pitch = 4.5;
 gearbox.gear2.geometry.facewidth = 12/gearbox.gear2.geometry.diametral_pitch;
 gearbox.gear2.geometry.pitchdiameter = gearbox.gear2.geometry.N/gearbox.gear2.geometry.diametral_pitch;
 gearbox.gear2.geometry.pressure_angle = 20;
 gearbox.gear2.geometry.position = [(gearbox.shaft.length-gearbox.shaft.geardist)*0.5;0;0];
 
-gearbox.gear2.material.hardness = 197;
-gearbox.gear2.material.poissonratio = 0.29;
+gearbox.gear2.material.hardness = 228;
+gearbox.gear2.material.poissonratio = 0.25;
 %gearbox.gear2.material.elongation = 25;       %Elongation over 2 in
-gearbox.gear2.material.yieldstrength = 66.7e3;
-gearbox.gear2.material.youngsmodulus = 29.7E6;
+gearbox.gear2.material.yieldstrenght = 100e3;
+gearbox.gear2.material.youngsmodulus = 28E6;
 gearbox.gear2.material.quality = 6;
-gearbox.gear2.material.density = 0.284;
+gearbox.gear2.material.density = 0.289;
 
 %% Pinion 3 Parameters
-gearbox.pinion3.geometry.diametral_pitch = 3.25;
-gearbox.pinion3.geometry.facewidth = 16/gearbox.pinion3.geometry.diametral_pitch;
+gearbox.pinion3.geometry.diametral_pitch = 4;
+gearbox.pinion3.geometry.facewidth = 13.25/gearbox.pinion3.geometry.diametral_pitch;
 gearbox.pinion3.geometry.pitchdiameter = gearbox.pinion3.geometry.N/gearbox.pinion3.geometry.diametral_pitch;
 gearbox.pinion3.geometry.pressure_angle = 20;
 gearbox.pinion3.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardist)*0.5;0;0];
 
-gearbox.pinion3.material.hardness = 197;
-gearbox.pinion3.material.poissonratio = 0.29;
+gearbox.pinion3.material.hardness = 228;
+gearbox.pinion3.material.poissonratio = 0.25;
 %gearbox.pinion3.material.elongation = 25;       %Elongation over 2 in
-gearbox.pinion3.material.yieldstrength = 66.7e3;
-gearbox.pinion3.material.youngsmodulus = 29.7E6;
+gearbox.pinion3.material.yieldstrenght = 100e3;
+gearbox.pinion3.material.youngsmodulus = 28E6;
 gearbox.pinion3.material.quality = 6;
-gearbox.pinion3.material.density = 0.284;
+gearbox.pinion3.material.density = 0.289;
 
 %% Gear 3 Parameters
-gearbox.gear3.geometry.diametral_pitch = 3.25;
-gearbox.gear3.geometry.facewidth = 16/gearbox.gear3.geometry.diametral_pitch;
+gearbox.gear3.geometry.diametral_pitch = 4;
+gearbox.gear3.geometry.facewidth = 13.25/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pitchdiameter = gearbox.gear3.geometry.N/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pressure_angle = 20;
 gearbox.gear3.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardist)*0.5;0;0];
 
-gearbox.gear3.material.hardness = 197;
-gearbox.gear3.material.poissonratio = 0.29;
+gearbox.gear3.material.hardness = 228;
+gearbox.gear3.material.poissonratio = 0.25;
 %gearbox.gear3.material.elongation = 25;       %Elongation over 2 in
-gearbox.gear3.material.yieldstrength = 66.7e3;
-gearbox.gear3.material.youngsmodulus = 29.7E6; %psi
+gearbox.gear3.material.yieldstrenght = 100e3;
+gearbox.gear3.material.youngsmodulus = 28E6; %psi
 gearbox.gear3.material.quality = 6;
-gearbox.gear3.material.density = 0.284;
+gearbox.gear3.material.density = 0.289;
 
 %% Input Shaft
 

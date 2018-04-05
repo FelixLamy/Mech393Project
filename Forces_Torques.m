@@ -1,5 +1,3 @@
-Gearbox_Parameters;
-
 %% Gear 3
 gearbox.gear3.loads.P = 0.675*17000*0.737562*12; %W to (lbf*ft/s)*(in/ft) = lfb*in/s
 gearbox.gear3.loads.T = gearbox.gear3.loads.P/gearbox.gear3.geometry.omega; %lbf*in
