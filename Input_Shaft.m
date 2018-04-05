@@ -1,6 +1,3 @@
-Gearbox_Parameters;
-Forces_Torques;
-
 %% Reaction Force Calculation
 
 gearbox.shaft.IN.RLZ = ((-gearbox.pinion2.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion2.loads.FW(3))+((-gearbox.pinion1.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion1.loads.FW(3));
@@ -121,7 +118,7 @@ gearbox.shaft.IN.sigmaMP1_VM = sqrt(3*(gearbox.shaft.IN.tauMP1^2));
  
 gearbox.shaft.IN.mod_safetyP1 = (gearbox.shaft.IN.material.enduranceP1*gearbox.shaft.IN.material.UTS)/((gearbox.shaft.IN.sigmaAP1_VM*gearbox.shaft.IN.material.UTS)+(gearbox.shaft.IN.material.enduranceP1*gearbox.shaft.IN.sigmaMP1_VM));
 
-%% Key Safety factor in shaft at P2
+%% Keyseat Safety factor in shaft at P2
 
 gearbox.shaft.IN.keyP2.length = 3.5; %in
 gearbox.shaft.IN.keyP2.width = 0.25; %in
@@ -142,7 +139,7 @@ gearbox.shaft.IN.keyP2.sigmaMP2_VM = sqrt(3*(gearbox.shaft.IN.tauMP2^2));
  
 gearbox.shaft.IN.keyP2.mod_safetyP2 = (gearbox.shaft.IN.material.enduranceP2*gearbox.shaft.IN.material.UTS)/((gearbox.shaft.IN.keyP2.sigmaAP2_VM*gearbox.shaft.IN.material.UTS)+(gearbox.shaft.IN.material.enduranceP2*gearbox.shaft.IN.keyP2.sigmaMP2_VM));
 
-%% %% Key Safety factor in shaft at P1
+%% %% Keyseat Safety factor in shaft at P1
  
 gearbox.shaft.IN.keyP1.length = 3.5; %in
 gearbox.shaft.IN.keyP1.width = 0.25; %in

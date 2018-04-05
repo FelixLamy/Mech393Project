@@ -3,8 +3,8 @@ clc
 
 Gearbox_Parameters
 Forces_Torques
-Surface_Gears
 Tooth_Bending
+Surface_Gears
 Shafts
 Input_Shaft
 Idler_Shaft
