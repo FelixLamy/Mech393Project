@@ -1,3 +1,7 @@
+clc
+close all
+clear all
+
 Gearbox_Parameters
 Forces_Torques
 Input_Shaft
@@ -5,7 +9,7 @@ Input_Shaft
 x = 0:0.01:gearbox.shaft.length;
 
 for i = 1:length(x)
-    VB = IN_BM(x(i),gearbox.pinion2.geometry.position(1),gearbox.pinion1.geometry.position(1),gearbox.shaft.length,gearbox.pinion2.loads.F,gearbox.pinion1.loads.F,gearbox.shaft.IN.ROY,gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLY,gearbox.shaft.IN.RLZ,gearbox.shaft.IN.torsion);
+    VB = IN_BM(x(i),gearbox.pinion2.geometry.position(1),gearbox.pinion1.geometry.position(1),gearbox.shaft.length,gearbox.pinion2.loads.FW,gearbox.pinion1.loads.FW,gearbox.shaft.IN.ROY,gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLY,gearbox.shaft.IN.RLZ,gearbox.shaft.IN.torsion);
     V(i,1:3) = [x(i);VB(1,1);VB(1,2)];
     B2(i,1:3) = [x(i);VB(2,1);VB(2,2)];
 end
