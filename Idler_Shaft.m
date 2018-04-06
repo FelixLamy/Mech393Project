@@ -1,18 +1,23 @@
-Gearbox_Parameters;
-Forces_Torques;
-Shafts;
-
 %% Reaction Force Calculation
 
-gearbox.shaft.ID.RLY = gearbox.shaft.ID.bearing2.loads.F(2);
-gearbox.shaft.ID.RLZ = gearbox.shaft.ID.bearing2.loads.F(3);
-gearbox.shaft.ID.ROY = gearbox.shaft.ID.bearing1.loads.F(2);
-gearbox.shaft.ID.ROZ = gearbox.shaft.ID.bearing1.loads.F(3);
-gearbox.shaft.ID.torsion = [gearbox.gear2.loads.T+gearbox.pinion3.loads.T,gearbox.gear2.loads.T,0];
+gearbox.shaft.ID.RLZ = ((-gearbox.gear2.geometry.position(1)/gearbox.shaft.length)*gearbox.gear2.loads.FW(3))+((-gearbox.pinion3.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion3.loads.FW(3));
+gearbox.shaft.ID.RLY = ((-gearbox.gear2.geometry.position(1)/gearbox.shaft.length)*gearbox.gear2.loads.FW(2))+((-gearbox.pinion3.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion3.loads.FW(2));
+
+gearbox.shaft.ID.ROZ = -gearbox.shaft.ID.RLZ-gearbox.gear2.loads.FW(3)-gearbox.pinion3.loads.FW(3);
+gearbox.shaft.ID.ROY = -gearbox.shaft.ID.RLY-gearbox.gear2.loads.FW(2)-gearbox.pinion3.loads.FW(2);
+
+% gearbox.shaft.ID.RLY = gearbox.shaft.ID.bearing2.loads.F(2);
+% gearbox.shaft.ID.RLZ = gearbox.shaft.ID.bearing2.loads.F(3);
+% gearbox.shaft.ID.ROY = gearbox.shaft.ID.bearing1.loads.F(2);
+% gearbox.shaft.ID.ROZ = gearbox.shaft.ID.bearing1.loads.F(3);
+gearbox.shaft.ID.torsion = [0,gearbox.pinion3.loads.T,gearbox.gear2.loads.T,0];
+
+gearbox.shaft.ID.RY =[gearbox.shaft.ID.ROY gearbox.shaft.ID.RLY];
+gearbox.shaft.ID.RZ =[gearbox.shaft.ID.ROZ gearbox.shaft.ID.RLZ];
 
 %% Diameter 0<x<centerline of P2 + 0.5D
 
-VBG2 = ID_BM((gearbox.shaft.length-gearbox.shaft.geardist)*0.5+(gearbox.gear2.geometry.facewidth*0.5),gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.F,gearbox.pinion3.loads.F,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
+VBG2 = ID_BM((gearbox.shaft.length-gearbox.shaft.geardist)*0.5+(gearbox.gear2.geometry.facewidth*0.5),gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.FW,gearbox.pinion3.loads.FW,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
 
 gearbox.shaft.ID.material.uncorrected_enduranceG2 = 0.5*gearbox.shaft.ID.material.UTS;
 gearbox.shaft.ID.factors.CloadG2 = 1; %torsion and bending
@@ -69,7 +74,7 @@ gearbox.shaft.ID.mod_safetyG2 = (gearbox.shaft.ID.material.enduranceG2*gearbox.s
 
 %% Diameter centerline P3 - 0.5D <x<length
 
-VBP3 = ID_BM((gearbox.shaft.length+gearbox.shaft.geardist)*0.5-(gearbox.pinion3.geometry.facewidth*0.5),gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.F,gearbox.pinion3.loads.F,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
+VBP3 = ID_BM((gearbox.shaft.length+gearbox.shaft.geardist)*0.5-(gearbox.pinion3.geometry.facewidth*0.5),gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.FW,gearbox.pinion3.loads.FW,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
 
 gearbox.shaft.ID.material.uncorrected_enduranceP3 = 0.5*gearbox.shaft.ID.material.UTS;
 gearbox.shaft.ID.factors.CloadP3 = 1; %torsion and bending

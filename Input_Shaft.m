@@ -1,13 +1,10 @@
-Gearbox_Parameters;
-Forces_Torques;
-
 %% Reaction Force Calculation
 
 gearbox.shaft.IN.RLZ = ((-gearbox.pinion2.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion2.loads.FW(3))+((-gearbox.pinion1.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion1.loads.FW(3));
 gearbox.shaft.IN.RLY = ((-gearbox.pinion2.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion2.loads.FW(2))+((-gearbox.pinion1.geometry.position(1)/gearbox.shaft.length)*gearbox.pinion1.loads.FW(2));
 
-gearbox.shaft.IN.ROZ = -gearbox.shaft.IN.RLZ-gearbox.pinion2.loads.F(3)-gearbox.pinion1.loads.F(3);
-gearbox.shaft.IN.ROY = -gearbox.shaft.IN.RLY-gearbox.pinion2.loads.F(2)-gearbox.pinion1.loads.F(2);
+gearbox.shaft.IN.ROZ = -gearbox.shaft.IN.RLZ-gearbox.pinion2.loads.FW(3)-gearbox.pinion1.loads.FW(3);
+gearbox.shaft.IN.ROY = -gearbox.shaft.IN.RLY-gearbox.pinion2.loads.FW(2)-gearbox.pinion1.loads.FW(2);
 gearbox.shaft.IN.torsion = [gearbox.pinion1.loads.T+gearbox.pinion2.loads.T,gearbox.pinion1.loads.T,0];
 
 gearbox.shaft.IN.RZ = [gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLZ]; %[-,+]
@@ -27,7 +24,7 @@ gearbox.shaft.IN.factors.CreliabP2 = 0.868; %assume 90% reliability
 gearbox.shaft.IN.material.enduranceP2 = gearbox.shaft.IN.factors.CloadP2*gearbox.shaft.IN.factors.CsizeP2*gearbox.shaft.IN.factors.CsurfP2*gearbox.shaft.IN.factors.CtempP2*gearbox.shaft.IN.factors.CreliabP2*gearbox.shaft.IN.material.uncorrected_enduranceP2;
 
 gearbox.shaft.IN.factors.qP2 = 0.75; %assuming notch radius of 0.05 in
-gearbox.shaft.IN.factors.ktP2 = 3.5; %assuming
+gearbox.shaft.IN.factors.ktP2 = 2; %assuming
 gearbox.shaft.IN.factors.ktsP2 = 2; %assuming
 
 gearbox.shaft.IN.factors.kfP2 = 1 + gearbox.shaft.IN.factors.qP2*(gearbox.shaft.IN.factors.ktP2 - 1);
@@ -81,7 +78,7 @@ gearbox.shaft.IN.factors.CreliabP1 = 0.868; %assume 90% reliability
 gearbox.shaft.IN.material.enduranceP1 = gearbox.shaft.IN.factors.CloadP1*gearbox.shaft.IN.factors.CsizeP1*gearbox.shaft.IN.factors.CsurfP1*gearbox.shaft.IN.factors.CtempP1*gearbox.shaft.IN.factors.CreliabP1*gearbox.shaft.IN.material.uncorrected_enduranceP1;
 
 gearbox.shaft.IN.factors.qP1 = 0.75; %assuming notch radius of 0.05 in
-gearbox.shaft.IN.factors.ktP1 = 3.5; %assuming at r/d = 0.021 at key
+gearbox.shaft.IN.factors.ktP1 = 2; %assuming at r/d = 0.021 at key
 gearbox.shaft.IN.factors.ktsP1 = 2; %assuming
 
 gearbox.shaft.IN.factors.kfP1 = 1 + gearbox.shaft.IN.factors.qP1*(gearbox.shaft.IN.factors.ktP1 - 1);
@@ -107,8 +104,8 @@ gearbox.shaft.IN.factors.CreliabP1 = 0.868; %assume 90% reliability
 gearbox.shaft.IN.material.enduranceP1 = gearbox.shaft.IN.factors.CloadP1*gearbox.shaft.IN.factors.CsizeP1*gearbox.shaft.IN.factors.CsurfP1*gearbox.shaft.IN.factors.CtempP1*gearbox.shaft.IN.factors.CreliabP1*gearbox.shaft.IN.material.uncorrected_enduranceP1;
 
 gearbox.shaft.IN.factors.qP1 = 0.75; %assuming notch radius of 0.05 in
-gearbox.shaft.IN.factors.ktP1 = 0.97098*(0.05^(-0.21796)); %with r/d = 0.05, D/d = 1.2
-gearbox.shaft.IN.factors.ktsP1 = 0.83425*(0.05^(-0.21649)); %with r/d = 0.05, D/d = 1.2
+gearbox.shaft.IN.factors.ktP1 = 0.932446*(0.0667^(-0.263268)); %with r/d = 0.0667, D/d = 1.6
+gearbox.shaft.IN.factors.ktsP1 = 0.85475*(0.0667^(-0.23444)); %with r/d = 0.0667, D/d = 1.6
 
 gearbox.shaft.IN.factors.kfP1 = 1 + gearbox.shaft.IN.factors.qP1*(gearbox.shaft.IN.factors.ktP1 - 1);
 gearbox.shaft.IN.factors.kfsP1 = 1 + gearbox.shaft.IN.factors.qP1*(gearbox.shaft.IN.factors.ktsP1 - 1);
@@ -121,7 +118,7 @@ gearbox.shaft.IN.sigmaMP1_VM = sqrt(3*(gearbox.shaft.IN.tauMP1^2));
  
 gearbox.shaft.IN.mod_safetyP1 = (gearbox.shaft.IN.material.enduranceP1*gearbox.shaft.IN.material.UTS)/((gearbox.shaft.IN.sigmaAP1_VM*gearbox.shaft.IN.material.UTS)+(gearbox.shaft.IN.material.enduranceP1*gearbox.shaft.IN.sigmaMP1_VM));
 
-%% Key Safety factor in shaft at P2
+%% Keyseat Safety factor in shaft at P2
 
 gearbox.shaft.IN.keyP2.length = 3.5; %in
 gearbox.shaft.IN.keyP2.width = 0.25; %in
@@ -142,7 +139,7 @@ gearbox.shaft.IN.keyP2.sigmaMP2_VM = sqrt(3*(gearbox.shaft.IN.tauMP2^2));
  
 gearbox.shaft.IN.keyP2.mod_safetyP2 = (gearbox.shaft.IN.material.enduranceP2*gearbox.shaft.IN.material.UTS)/((gearbox.shaft.IN.keyP2.sigmaAP2_VM*gearbox.shaft.IN.material.UTS)+(gearbox.shaft.IN.material.enduranceP2*gearbox.shaft.IN.keyP2.sigmaMP2_VM));
 
-%% %% Key Safety factor in shaft at P1
+%% %% Keyseat Safety factor in shaft at P1
  
 gearbox.shaft.IN.keyP1.length = 3.5; %in
 gearbox.shaft.IN.keyP1.width = 0.25; %in

@@ -31,8 +31,7 @@ syms Rby Rbz
 gearbox.shaft.ID.bearing2.loads.F = [0; Rby; Rbz];
 gearbox.shaft.ID.bearing2.geometry.position = [gearbox.shaft.length; 0; 0];
 
-eqn = cross(gearbox.gear2.geometry.position, gearbox.gear2.loads.FW) + cross(gearbox.pinion3.geometry.position, gearbox.pinion3.loads.FW) ...
-            + cross(gearbox.shaft.ID.bearing2.loads.F, gearbox.shaft.ID.bearing2.geometry.position) == 0;
+eqn = cross(gearbox.gear2.geometry.position, gearbox.gear2.loads.FW) + cross(gearbox.pinion3.geometry.position, gearbox.pinion3.loads.FW)+ cross(gearbox.shaft.ID.bearing2.loads.F, gearbox.shaft.ID.bearing2.geometry.position) == 0;
 [solRby,solRbz] = solve(eqn);
 
 gearbox.shaft.ID.bearing2.loads.F = [0; double((vpa(solRby))); double((vpa(solRbz)))];
@@ -41,8 +40,8 @@ syms Ray Raz
 gearbox.shaft.ID.bearing1.loads.F = [0; Ray; Raz];
 gearbox.shaft.ID.bearing1.geometry.position = [0; 0; 0];
 
-eqn = gearbox.gear2.loads.FW + gearbox.pinion3.loads.FW + gearbox.shaft.ID.bearing2.loads.F + gearbox.shaft.ID.bearing1.loads.F == 0;
-[solRay,solRaz] = solve(eqn);
+eqn2 = gearbox.gear2.loads.FW + gearbox.pinion3.loads.FW + gearbox.shaft.ID.bearing2.loads.F + gearbox.shaft.ID.bearing1.loads.F == 0;
+[solRay,solRaz] = solve(eqn2);
 
 gearbox.shaft.ID.bearing1.loads.F = [0; double((vpa(solRay))); double((vpa(solRaz)))];
 
