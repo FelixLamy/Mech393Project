@@ -58,11 +58,11 @@ gearbox.shaft.ID.factors.ktsG2 = 0.84897*(0.1^(-0.23161)); %with r/d = 0.1, D/d 
 gearbox.shaft.ID.factors.kfG2 = 1 + gearbox.shaft.ID.factors.qG2*(gearbox.shaft.ID.factors.ktG2 - 1);
 gearbox.shaft.ID.factors.kfsG2 = 1 + gearbox.shaft.ID.factors.qG2*(gearbox.shaft.ID.factors.ktsG2 - 1);
 
-gearbox.shaft.ID.sigmaAG2 = gearbox.shaft.ID.factors.kfG2*sqrt((VBG2(2,1)*(gearbox.shaft.ID.dG2/2)/((pi*gearbox.shaft.ID.dG2^4)/64))^2+(VBG2(2,2)*(gearbox.shaft.ID.dG2/2)/((pi*gearbox.shaft.ID.dG2^4)/64))^2);
-gearbox.shaft.ID.tauMG2 = gearbox.shaft.ID.factors.ktsG2*VBG2(3,1)*(gearbox.shaft.ID.dG2/2)/((pi*gearbox.shaft.ID.dG2^4)/32);
+gearbox.shaft.ID.sigmaAP2 = gearbox.shaft.IN.factors.kfP2*sqrt((VBP2(2,1)*(gearbox.shaft.IN.dP2/2)/((pi*gearbox.shaft.IN.dP2^4)/64))^2+(VBP2(2,2)*(gearbox.shaft.IN.dP2/2)/((pi*gearbox.shaft.IN.dP2^4)/64))^2);
+gearbox.shaft.ID.tauMP2 = gearbox.shaft.IN.factors.ktsP2*VBP2(3,1)*(gearbox.shaft.IN.dP2/2)/((pi*gearbox.shaft.IN.dP2^4)/32);
 
-gearbox.shaft.ID.sigmaAG2_VM = gearbox.shaft.ID.sigmaAG2;
-gearbox.shaft.ID.sigmaMG2_VM = sqrt(3*(gearbox.shaft.ID.tauMG2^2));
+gearbox.shaft.ID.sigmaAP2_VM = gearbox.shaft.IN.sigmaAP2;
+gearbox.shaft.ID.sigmaMP2_VM = sqrt(3*(gearbox.shaft.IN.tauMP2^2));
 
 gearbox.shaft.ID.mod_safetyG2 = (gearbox.shaft.ID.material.enduranceG2*gearbox.shaft.ID.material.UTS)/((gearbox.shaft.ID.sigmaAG2_VM*gearbox.shaft.ID.material.UTS)+(gearbox.shaft.ID.material.enduranceG2*gearbox.shaft.ID.sigmaMG2_VM));
 
