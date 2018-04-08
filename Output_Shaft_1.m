@@ -1,18 +1,18 @@
 %% Output Shaft 1
-clc
-
-x = 0:0.001:gearbox.shaft.O1.geometry.length;
-
-%Generate Shear and BendO1g Moment Diagrams
-[VY, VZ, MY, MZ] = O1_VBD(gearbox, x);
-
-% Plot BendO1g Moment Diagram
-plot(x,VY,x,MY, x, VZ, x, MZ);
-title('Shear and BendO1g Moment Diagram');
-xlabel('Position along shaft [O1]');
-ylabel('Shear - lb, Moment - lbO1');
-legend('Shear XY Plane', 'Moment XY Plane', 'Shear XZ Plane', 'Moment XZ Plane');
-grid on;
+% clc
+% 
+% x = 0:0.001:gearbox.shaft.O1.geometry.length;
+% 
+% %Generate Shear and BendO1g Moment Diagrams
+% [VY, VZ, MY, MZ] = O1_VBD(gearbox, x);
+% 
+% % Plot BendO1g Moment Diagram
+% plot(x,VY,x,MY, x, VZ, x, MZ);
+% title('Shear and BendO1g Moment Diagram');
+% xlabel('Position along shaft [O1]');
+% ylabel('Shear - lb, Moment - lbO1');
+% legend('Shear XY Plane', 'Moment XY Plane', 'Shear XZ Plane', 'Moment XZ Plane');
+% grid on;
 
 %% Calculate diameter of shaft at point 1
 

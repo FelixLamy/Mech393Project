@@ -9,7 +9,7 @@ Shafts
 Input_Shaft
 Idler_Shaft
 Output_Shaft_1;
-Output_Shaft_2;
+Output_Shaft_1;
 
 fprintf('--------------------------------- \n')
 fprintf('Pitch Diameters\n')
@@ -90,20 +90,6 @@ fprintf('--------------------------------- \n')
 fprintf('Keyway Safety Factors in Idler Shaft\n')
 fprintf('Gear 2: %f\n', gearbox.shaft.ID.keyG2.mod_safetyG2)
 fprintf('Pinion 3 : %f\n', gearbox.shaft.ID.keyP3.mod_safetyP3)
-
-fprintf('--------------------------------- \n')
-fprintf('--------------------------------- \n')
-fprintf('Output Shaft 1 Diameter\n')
-fprintf('Gear 1: %f\n', gearbox.shaft.O1.dP1)
-fprintf('Safety Factor: %f\n', gearbox.shaft.O1.mod_safetyP1)
-
-fprintf('--------------------------------- \n')
-fprintf('--------------------------------- \n')
-fprintf('Output Shaft 2 Diameter\n')
-fprintf('Gear 3: %f\n', gearbox.shaft.O2.dP1)
-fprintf('Safety Factor: %f\n', gearbox.shaft.O2.mod_safetyP1)
-
-
 
 
 
