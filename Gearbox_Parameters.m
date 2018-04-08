@@ -48,7 +48,7 @@ gearbox.gear1.geometry.diametral_pitch = 5.25;
 gearbox.gear1.geometry.facewidth = 13/gearbox.gear1.geometry.diametral_pitch;
 gearbox.gear1.geometry.pitchdiameter = gearbox.gear1.geometry.N/gearbox.gear1.geometry.diametral_pitch;
 gearbox.gear1.geometry.pressure_angle = 20;
-gearbox.gear1.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardist)*0.5;0;0];
+gearbox.gear1.geometry.position = [3;0;0];
 
 gearbox.gear1.material.hardness = 321;
 gearbox.gear1.material.poissonratio = 0.29;
@@ -108,7 +108,7 @@ gearbox.gear3.geometry.diametral_pitch = 4.5;
 gearbox.gear3.geometry.facewidth = 14/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pitchdiameter = gearbox.gear3.geometry.N/gearbox.gear3.geometry.diametral_pitch;
 gearbox.gear3.geometry.pressure_angle = 20;
-gearbox.gear3.geometry.position = [(gearbox.shaft.length+gearbox.shaft.geardist)*0.5;0;0];
+gearbox.gear3.geometry.position = [3;0;0];
 
 gearbox.gear3.material.hardness = 321;
 gearbox.gear3.material.poissonratio = 0.29;
@@ -146,4 +146,16 @@ gearbox.shaft.ID.keyG2.material.UTS = 47e3;
 gearbox.shaft.ID.keyG2.material.yield = 26e3;
 gearbox.shaft.ID.keyP3.material.UTS = 47e3;
 gearbox.shaft.ID.keyP3.material.yield = 26e3;
+
+%% Output Shafts 
+
+%gearbox.shaft.O1.torsion = gearbox.gear1.loads.T;
+% 4340 Steel
+gearbox.shaft.O1.material.yield = 124e3; %psi
+gearbox.shaft.O1.material.UTS = 140e3; %psi
+
+% 4340 Steel
+gearbox.shaft.O2.material.yield = 124e3; %psi
+gearbox.shaft.O2.material.UTS = 140e3; %psi
+
 
