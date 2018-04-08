@@ -6,7 +6,7 @@ gearbox.shaft.ID.RLY = ((-gearbox.gear2.geometry.position(1)/gearbox.shaft.lengt
 gearbox.shaft.ID.ROZ = -gearbox.shaft.ID.RLZ-gearbox.gear2.loads.FW(3)-gearbox.pinion3.loads.FW(3);
 gearbox.shaft.ID.ROY = -gearbox.shaft.ID.RLY-gearbox.gear2.loads.FW(2)-gearbox.pinion3.loads.FW(2);
  
-gearbox.shaft.ID.torsion = [0,gearbox.pinion3.loads.T,gearbox.gear2.loads.T,0];
+gearbox.shaft.ID.torsion = [0,gearbox.pinion3.loads.T,0];
  
 gearbox.shaft.ID.RY =[gearbox.shaft.ID.ROY gearbox.shaft.ID.RLY];
 gearbox.shaft.ID.RZ =[gearbox.shaft.ID.ROZ gearbox.shaft.ID.RLZ];

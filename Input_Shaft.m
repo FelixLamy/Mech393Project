@@ -7,8 +7,8 @@ gearbox.shaft.IN.ROZ = -gearbox.shaft.IN.RLZ-gearbox.pinion2.loads.FW(3)-gearbox
 gearbox.shaft.IN.ROY = -gearbox.shaft.IN.RLY-gearbox.pinion2.loads.FW(2)-gearbox.pinion1.loads.FW(2);
 gearbox.shaft.IN.torsion = [gearbox.pinion1.loads.T+gearbox.pinion2.loads.T,gearbox.pinion1.loads.T,0];
 
-gearbox.shaft.IN.RZ = [gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLZ]; %[-,+]
-gearbox.shaft.IN.RY = [gearbox.shaft.IN.ROY,gearbox.shaft.IN.RLY]; %[+,-]
+gearbox.shaft.IN.RZ = [gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLZ]; %[-,-]
+gearbox.shaft.IN.RY = [gearbox.shaft.IN.ROY,gearbox.shaft.IN.RLY]; %[+,+]
 
 %% Diameter 0<x<centerline of P2 + 0.5D
 
