@@ -36,16 +36,12 @@ gearbox.shaft.ID.TMG2 = gearbox.shaft.ID.torsion(1); %fully reversed loading
 gearbox.shaft.ID.MAG2 = sqrt(VBG2(2,1)^2 + VBG2(2,2)^2); 
  
 gearbox.shaft.ID.dG2 = ((32*gearbox.shaft.ID.factors.safety/pi)*sqrt((gearbox.shaft.ID.factors.kfG2*gearbox.shaft.ID.MAG2/gearbox.shaft.ID.material.enduranceG2)^2+(3/4)*(gearbox.shaft.ID.factors.kfsG2*gearbox.shaft.ID.TMG2/gearbox.shaft.ID.material.UTS)^2))^(1/3);
-<<<<<<< HEAD
 
 gearbox.shaft.ID.dG2 = floor(gearbox.shaft.ID.dG2)+ceil((gearbox.shaft.ID.dG2-floor(gearbox.shaft.ID.dG2))/0.25)*0.25; %round up to next quarter
-
-=======
  
 gearbox.shaft.ID.dG2 = 45/25.4; %mm to in
 % gearbox.shaft.ID.dG2 = floor(gearbox.shaft.ID.dG2)+ceil((gearbox.shaft.ID.dG2-floor(gearbox.shaft.ID.dG2))/0.25)*0.25; round up to next quarter
  
->>>>>>> a3ba2cd4fd6301a75e8275a98838a1c2cb06a335
 %% Recalculate safetly factor
  
 gearbox.shaft.ID.material.uncorrected_enduranceG2 = 0.5*gearbox.shaft.ID.material.UTS;
