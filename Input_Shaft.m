@@ -7,8 +7,8 @@ gearbox.shaft.IN.ROZ = -gearbox.shaft.IN.RLZ-gearbox.pinion2.loads.FW(3)-gearbox
 gearbox.shaft.IN.ROY = -gearbox.shaft.IN.RLY-gearbox.pinion2.loads.FW(2)-gearbox.pinion1.loads.FW(2);
 gearbox.shaft.IN.torsion = [gearbox.pinion1.loads.T+gearbox.pinion2.loads.T,gearbox.pinion1.loads.T,0];
 
-gearbox.shaft.IN.RZ = [gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLZ]; %[-,+]
-gearbox.shaft.IN.RY = [gearbox.shaft.IN.ROY,gearbox.shaft.IN.RLY]; %[+,-]
+gearbox.shaft.IN.RZ = [gearbox.shaft.IN.ROZ,gearbox.shaft.IN.RLZ]; %[-,-]
+gearbox.shaft.IN.RY = [gearbox.shaft.IN.ROY,gearbox.shaft.IN.RLY]; %[+,+]
 
 %% Diameter 0<x<centerline of P2 + 0.5D
 
@@ -36,7 +36,8 @@ gearbox.shaft.IN.MAP2 = sqrt(VBP2(2,1)^2 + VBP2(2,2)^2);
 
 gearbox.shaft.IN.dP2 = ((32*gearbox.shaft.IN.factors.safety/pi)*sqrt((gearbox.shaft.IN.factors.kfP2*gearbox.shaft.IN.MAP2/gearbox.shaft.IN.material.enduranceP2)^2+(3/4)*(gearbox.shaft.IN.factors.kfsP2*gearbox.shaft.IN.TMP2/gearbox.shaft.IN.material.UTS)^2))^(1/3);
 
-gearbox.shaft.IN.dP2 = floor(gearbox.shaft.IN.dP2)+ceil((gearbox.shaft.IN.dP2-floor(gearbox.shaft.IN.dP2))/0.25)*0.25; %round up to next quarter
+gearbox.shaft.IN.dP2 = 25/25.4; %mm to in
+% gearbox.shaft.IN.dP2 = floor(gearbox.shaft.IN.dP2)+ceil((gearbox.shaft.IN.dP2-floor(gearbox.shaft.IN.dP2))/0.25)*0.25; %round up to next quarter
 
 %% Recalculate safetly factor
 
@@ -90,7 +91,8 @@ gearbox.shaft.IN.MAP1 = sqrt(VBP1(2,1)^2 + VBP1(2,2)^2);
 
 gearbox.shaft.IN.dP1 = ((32*gearbox.shaft.IN.factors.safety/pi)*sqrt((gearbox.shaft.IN.factors.kfP1*gearbox.shaft.IN.MAP1/gearbox.shaft.IN.material.enduranceP1)^2+(3/4)*(gearbox.shaft.IN.factors.kfsP1*gearbox.shaft.IN.TMP1/gearbox.shaft.IN.material.UTS)^2))^(1/3);
 
-gearbox.shaft.IN.dP1 = floor(gearbox.shaft.IN.dP1)+ceil((gearbox.shaft.IN.dP1-floor(gearbox.shaft.IN.dP1))/0.25)*0.25;
+gearbox.shaft.IN.dP1 = 25/25.4; %mm to in
+% gearbox.shaft.IN.dP1 = floor(gearbox.shaft.IN.dP1)+ceil((gearbox.shaft.IN.dP1-floor(gearbox.shaft.IN.dP1))/0.25)*0.25;
 
 %% Recalculate safetly factor
 
