@@ -6,10 +6,6 @@ gearbox.shaft.ID.RLY = ((-gearbox.gear2.geometry.position(1)/gearbox.shaft.lengt
 gearbox.shaft.ID.ROZ = -gearbox.shaft.ID.RLZ-gearbox.gear2.loads.FW(3)-gearbox.pinion3.loads.FW(3);
 gearbox.shaft.ID.ROY = -gearbox.shaft.ID.RLY-gearbox.gear2.loads.FW(2)-gearbox.pinion3.loads.FW(2);
 
-% gearbox.shaft.ID.RLY = gearbox.shaft.ID.bearing2.loads.F(2);
-% gearbox.shaft.ID.RLZ = gearbox.shaft.ID.bearing2.loads.F(3);
-% gearbox.shaft.ID.ROY = gearbox.shaft.ID.bearing1.loads.F(2);
-% gearbox.shaft.ID.ROZ = gearbox.shaft.ID.bearing1.loads.F(3);
 gearbox.shaft.ID.torsion = [0,gearbox.pinion3.loads.T,gearbox.gear2.loads.T,0];
 
 gearbox.shaft.ID.RY =[gearbox.shaft.ID.ROY gearbox.shaft.ID.RLY];
@@ -56,8 +52,8 @@ gearbox.shaft.ID.factors.CreliabG2 = 0.868; %assume 90% reliability
 gearbox.shaft.ID.material.enduranceG2 = gearbox.shaft.ID.factors.CloadG2*gearbox.shaft.ID.factors.CsizeG2*gearbox.shaft.ID.factors.CsurfG2*gearbox.shaft.ID.factors.CtempG2*gearbox.shaft.ID.factors.CreliabG2*gearbox.shaft.ID.material.uncorrected_enduranceG2;
 
 gearbox.shaft.ID.factors.qG2 = 0.75; %assuming notch radius of 0.05 in
-gearbox.shaft.ID.factors.ktG2 = 0.93836*(0.1^(-0.25759)); %with r/d = 0.1, D/d = 1.4
-gearbox.shaft.ID.factors.ktsG2 = 0.86331*(0.1^(-0.23865)); %with r/d = 0.1, D/d = 1.4
+gearbox.shaft.ID.factors.ktG2 = 0.95684*(0.1^(-0.23513)); %with r/d = 0.1, D/d = 1.33 using linear interpolation
+gearbox.shaft.ID.factors.ktsG2 = 0.84897*(0.1^(-0.23161)); %with r/d = 0.1, D/d = 1.33
 
 gearbox.shaft.ID.factors.kfG2 = 1 + gearbox.shaft.ID.factors.qG2*(gearbox.shaft.ID.factors.ktG2 - 1);
 gearbox.shaft.ID.factors.kfsG2 = 1 + gearbox.shaft.ID.factors.qG2*(gearbox.shaft.ID.factors.ktsG2 - 1);
@@ -112,8 +108,8 @@ gearbox.shaft.ID.factors.CreliabP1 = 0.868; %assume 90% reliability
 gearbox.shaft.ID.material.enduranceP3 = gearbox.shaft.ID.factors.CloadP3*gearbox.shaft.ID.factors.CsizeP3*gearbox.shaft.ID.factors.CsurfP3*gearbox.shaft.ID.factors.CtempP3*gearbox.shaft.ID.factors.CreliabP3*gearbox.shaft.ID.material.uncorrected_enduranceP3;
 
 gearbox.shaft.ID.factors.qP3 = 0.75; %assuming notch radius of 0.05 in
-gearbox.shaft.ID.factors.ktP3 = 0.95120*(0.1^(-0.23757)); %with r/d = 0.1, D/d = 1.08
-gearbox.shaft.ID.factors.ktsP3 = 0.90337*(0.1^(-0.12692)); %with r/d = 0.1, D/d = 1.08
+gearbox.shaft.ID.factors.ktP3 = 0.95911*(0.1^(-0.22973)); %with r/d = 0.1, D/d = 1.14 using linear interpolation
+gearbox.shaft.ID.factors.ktsP3 = 0.87195*(0.1^(-0.16763)); %with r/d = 0.1, D/d = 1.14 using linear interpolation
 
 gearbox.shaft.ID.factors.kfP3 = 1 + gearbox.shaft.ID.factors.qP3*(gearbox.shaft.ID.factors.ktP3 - 1);
 gearbox.shaft.ID.factors.kfsP3 = 1 + gearbox.shaft.ID.factors.qP3*(gearbox.shaft.ID.factors.ktsP3 - 1);

@@ -63,11 +63,6 @@ fprintf('Pinion 1 Shear: %f\n', gearbox.shaft.IN.keyP1.safety_shear)
 
 fprintf('--------------------------------- \n')
 fprintf('--------------------------------- \n')
-fprintf('Key Seat Safety Factors in Idler Shaft\n')
-fprintf('Gear 2: %f\n', gearbox.shaft.ID.keyG2.mod_safetyG2)
-fprintf('Pinion 3 : %f\n', gearbox.shaft.ID.keyP3.mod_safetyP3)
-
-fprintf('--------------------------------- \n')
 fprintf('Idler Shaft Diameter\n')
 fprintf('Gear 2: %f\n', gearbox.shaft.ID.dG2)
 fprintf('Pinion 3: %f\n', gearbox.shaft.ID.dP3)
