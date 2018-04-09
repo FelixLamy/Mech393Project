@@ -76,5 +76,3 @@ gearbox.shaft.O1.sigmaMP1_VM = sqrt(3*(gearbox.shaft.O1.tauMP1^2));
 
 gearbox.shaft.O1.mod_safetyP1 = (gearbox.shaft.O1.material.enduranceP1*gearbox.shaft.O1.material.UTS)/((gearbox.shaft.O1.sigmaAP1_VM*gearbox.shaft.O1.material.UTS)+(gearbox.shaft.O1.material.enduranceP1*gearbox.shaft.O1.sigmaMP1_VM));
 
-
-

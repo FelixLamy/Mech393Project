@@ -64,7 +64,7 @@ fprintf('Pinion 2 Shear: %f\n', gearbox.shaft.IN.keyP2.safety_shear)
 fprintf('Pinion 1 Shear: %f\n', gearbox.shaft.IN.keyP1.safety_shear)
 
 fprintf('--------------------------------- \n')
-fprintf('Keyway Safety Factors in Idler Shaft\n')
+fprintf('Keyseat Safety Factors in Idler Shaft\n')
 fprintf('Pinion 2: %f\n', gearbox.shaft.IN.keyP2.mod_safetyP2)
 fprintf('Pinion 1 : %f\n', gearbox.shaft.IN.keyP1.mod_safetyP1)
 
@@ -87,7 +87,7 @@ fprintf('Gear 2 Shear: %f\n', gearbox.shaft.ID.keyG2.safety_shear)
 fprintf('Pinion 3 Shear: %f\n', gearbox.shaft.ID.keyP3.safety_shear)
 
 fprintf('--------------------------------- \n')
-fprintf('Keyway Safety Factors in Idler Shaft\n')
+fprintf('Keyseat Safety Factors in Idler Shaft\n')
 fprintf('Gear 2: %f\n', gearbox.shaft.ID.keyG2.mod_safetyG2)
 fprintf('Pinion 3 : %f\n', gearbox.shaft.ID.keyP3.mod_safetyP3)
 

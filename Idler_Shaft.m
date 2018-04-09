@@ -126,7 +126,7 @@ gearbox.shaft.ID.mod_safetyP3 = (gearbox.shaft.ID.material.enduranceP3*gearbox.s
 %% Key Safety factor in shaft at G2
  
 gearbox.shaft.ID.keyG2.length = gearbox.gear2.geometry.facewidth + 0.5; %in
-gearbox.shaft.ID.keyG2.width = 0.25; %in
+gearbox.shaft.ID.keyG2.width = 0.5; %in
  
 VBG2_key = ID_BM((gearbox.shaft.length-gearbox.shaft.geardist)*0.5-0.25,gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.FW,gearbox.pinion3.loads.FW,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
  
@@ -147,7 +147,7 @@ gearbox.shaft.ID.keyG2.mod_safetyG2 = (gearbox.shaft.ID.material.enduranceG2*gea
 %% %% Key Safety factor in shaft at P3
  
 gearbox.shaft.ID.keyP3.length = gearbox.pinion3.geometry.facewidth + 0.5; %in
-gearbox.shaft.ID.keyP3.width = 0.25; %in
+gearbox.shaft.ID.keyP3.width = 0.5; %in
  
 VBP3_key = ID_BM((gearbox.shaft.length+gearbox.shaft.geardist)*0.5+0.25,gearbox.gear2.geometry.position(1),gearbox.pinion3.geometry.position(1),gearbox.shaft.length,gearbox.gear2.loads.FW,gearbox.pinion3.loads.FW,gearbox.shaft.ID.ROY,gearbox.shaft.ID.ROZ,gearbox.shaft.ID.RLY,gearbox.shaft.ID.RLZ,gearbox.shaft.ID.torsion);
  
